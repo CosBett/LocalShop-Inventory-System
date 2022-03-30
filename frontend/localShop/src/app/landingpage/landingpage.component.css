@@ -1,0 +1,11 @@
+#sect1 {
+  height: 100vh;
+  background-image: url("../../assets/images/landing.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#welcome {
+  text-align: center;
+}
