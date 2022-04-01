@@ -16,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
+import { SuperuserComponent } from './superuser/superuser.component';
 
 
 
@@ -25,7 +26,8 @@ import{HttpClientModule} from '@angular/common/http';
     LandingpageComponent,
     ClerkComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SuperuserComponent
   ],
   imports: [
     BrowserModule,
