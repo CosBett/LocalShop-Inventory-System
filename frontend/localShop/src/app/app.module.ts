@@ -12,6 +12,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import{HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -19,7 +24,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     LandingpageComponent,
     ClerkComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,10 @@ import { LoginComponent } from './login/login.component';
     MatSortModule,
     MatTableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
