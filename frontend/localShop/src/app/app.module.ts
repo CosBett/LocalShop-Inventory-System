@@ -11,13 +11,15 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingpageComponent,
-    ClerkComponent
+    ClerkComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
