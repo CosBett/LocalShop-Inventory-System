@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "corsheaders",
+    'auths',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +145,4 @@ REST_FRAMEWORK = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'auths.User'
