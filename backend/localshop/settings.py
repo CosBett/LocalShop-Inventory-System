@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     "corsheaders",
     'auths',
 ]
@@ -146,6 +147,7 @@ REST_FRAMEWORK = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'auths.User'
+ACCOUNT_UNIQUE_EMAIL = True
 
 
 CORS_ORIGIN_ALLOW_ALL = True
