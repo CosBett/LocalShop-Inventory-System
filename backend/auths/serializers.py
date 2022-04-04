@@ -10,13 +10,17 @@ class UserSerializer(serializers.ModelSerializer):
       extra_kwargs = {
         'password': {'write_only': True}
       }
+
+class AdminSignupSerializer(serializers.ModelSerializer):
+    password2 =serializers.CharField(style={ 'input_type':'password'}, write_only=True)
+   
+    class Meta:
+     fields = ['username', 'email', 'password', 'password2']
     
-    def create(self,validated_data):
-      password = validated_data.pop('password', None)
-      instance = self.Meta.model(**validated_data)
-      if password is not None:
-        instance.set_password(password)
-        instance.save()
-      
-      return instance      
+class ClerkSignupSerializer(serializers.ModelSerializer):
+    password2 =serializers.CharField(style={ 'input_type':'password'}, write_only=True)
+   
+    class Meta:
+     fields = ['username', 'email', 'password', 'password2']
+    
     

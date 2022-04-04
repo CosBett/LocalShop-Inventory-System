@@ -10,7 +10,7 @@ class User(AbstractUser):
   is_staff = models.BooleanField(default=False)
   
   def __str__(self):
-    return self.username
+    return self.email
   
   @receiver(post_save, sender=settings.AUTH_USER_MODEL)
   def create_auth_token(sender,instance=None,created=False, **kwargs):
