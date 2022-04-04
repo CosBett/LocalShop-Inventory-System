@@ -13,3 +13,7 @@ p {
 .navbar {
   height: 10vh;
 }
+
+.dashboard {
+  height: 100vh;
+}

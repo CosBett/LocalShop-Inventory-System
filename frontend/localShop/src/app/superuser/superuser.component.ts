@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-superuser',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./superuser.component.css']
 })
 export class SuperuserComponent implements OnInit {
+
+  mode = new FormControl('side');
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSortModule } from '@angular/material/sort';
 import{MatPaginatorModule} from '@angular/material/paginator';
@@ -17,8 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
 import { SuperuserComponent } from './superuser/superuser.component';
-
-
+import { SidenavComponent } from './sidenav/sidenav.component';
+import {MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,9 @@ import { SuperuserComponent } from './superuser/superuser.component';
     ClerkComponent,
     LoginComponent,
     RegisterComponent,
-    SuperuserComponent
+    SuperuserComponent,
+    SidenavComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -41,9 +43,13 @@ import { SuperuserComponent } from './superuser/superuser.component';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }
