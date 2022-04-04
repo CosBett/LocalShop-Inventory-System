@@ -1,0 +1,19 @@
+#clerk_img {
+  height: 9vh;
+  width: 5vw;
+  border-radius: 50%;
+}
+
+p {
+  font-size: 1.2vw;
+  font-weight: bold;
+  line-height: 0.7;
+}
+
+.navbar {
+  height: 10vh;
+}
+
+.dashboard {
+  height: 100vh;
+}
