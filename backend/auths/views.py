@@ -1,8 +1,8 @@
 from contextvars import Token
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSerializer
-from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.views import ObtainAuthToken,APIView
 
 
 class AdminSignupView(generics.GenericAPIView):
@@ -43,4 +43,7 @@ class CustomAuthToken(ObtainAuthToken):
             'is_admin': user.is_admin,
             'email': user.email
         })
-        
+class LogoutView(APIView):
+     def post(self, request, format=None):
+          request.user.auth_token.delete()
+          return Response(status=status.HTTP_200_OK)        
