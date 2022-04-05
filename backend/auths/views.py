@@ -1,14 +1,15 @@
 from contextvars import Token
-from rest_framework import generics, status
+from rest_framework import generics, status, permissions
 from rest_framework.response import Response
 from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSerializer
-from rest_framework.authtoken.views import ObtainAuthToken,APIView
+from rest_framework.authtoken.views import ObtainAuthToken, APIView
+from .permissions import IsAdminUser, IsClerkUser
 
 
 class AdminSignupView(generics.GenericAPIView):
     serializer_class = AdminSignupSerializer
-    
-    def post(self, request,*args, **kwargs):
+
+    def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
@@ -17,10 +18,12 @@ class AdminSignupView(generics.GenericAPIView):
             "token": user.auth_token.key,
             'Message': 'Account created successfully'
         })
+
+
 class ClerkSignupView(generics.GenericAPIView):
     serializer_class = ClerkSignupSerializer
-    
-    def post(self, request,*args, **kwargs):
+
+    def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
@@ -28,12 +31,13 @@ class ClerkSignupView(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": user.auth_token.key,
             'Message': 'Account created successfully'
-        })        
+        })
+
 
 class CustomAuthToken(ObtainAuthToken):
     def post(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data,
-                                          context={'request': request})
+                                           context={'request': request})
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
@@ -43,7 +47,25 @@ class CustomAuthToken(ObtainAuthToken):
             'is_admin': user.is_admin,
             'email': user.email
         })
+
+
 class LogoutView(APIView):
-     def post(self, request, format=None):
-          request.user.auth_token.delete()
-          return Response(status=status.HTTP_200_OK)        
+    def post(self, request, format=None):
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
+
+
+class AdminOnlyView(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticated & IsAdminUser)
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+class ClerkOnlyView(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticated & IsClerkUser)
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
