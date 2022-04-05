@@ -1,6 +1,7 @@
-from contextvars import Token
+
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSerializer
 from rest_framework.authtoken.views import ObtainAuthToken, APIView
 from .permissions import IsAdminUser, IsClerkUser
@@ -56,7 +57,7 @@ class LogoutView(APIView):
 
 
 class AdminOnlyView(generics.RetrieveAPIView):
-    permission_classes = (permissions.IsAuthenticated & IsAdminUser)
+    permission_classes = [permissions.IsAuthenticated and IsAdminUser]
     serializer_class = UserSerializer
 
     def get_object(self):
@@ -64,7 +65,7 @@ class AdminOnlyView(generics.RetrieveAPIView):
 
 
 class ClerkOnlyView(generics.RetrieveAPIView):
-    permission_classes = (permissions.IsAuthenticated & IsClerkUser)
+    permission_classes = [permissions.IsAuthenticated and IsClerkUser]
     serializer_class = UserSerializer
 
     def get_object(self):
