@@ -12,5 +12,18 @@ class AdminSignupView(generics.GenericAPIView):
         user = serializer.save()
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
-            "token": user.auth_token.key
+            "token": user.auth_token.key,
+            'Message': 'Account created successfully'
         })
+class ClerkSignupView(generics.GenericAPIView):
+    serializer_class = ClerkSignupSerializer
+    
+    def post(self, request,*args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "token": user.auth_token.key,
+            'Message': 'Account created successfully'
+        })        
