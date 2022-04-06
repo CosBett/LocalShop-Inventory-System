@@ -22,13 +22,14 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
       this.form = this.formBuilder.group({
-        name: '',
+        username: '',
         email: '',
-        password: ''
+        password: '',
+        password2:''
       });
     }
     submit(){
-       this.http.post('http://localhost:8000/api/register', this.form.getRawValue()).subscribe(
+       this.http.post('http://localhost:8000/api/register/clerk/', this.form.getRawValue()).subscribe(
         next => {
         this.router.navigate(['/login']);
 

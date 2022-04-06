@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,30 +10,34 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  form!: FormGroup;
+  
+  responsedata: any;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private service: AuthService,
     private http: HttpClient,
-    private router: Router
-  ) {
+    private router: Router) {
+    localStorage.clear();
   }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      email: '',
-      password: ''
-    });
   }
-  submit() {
-    this.http.post('http://localhost:8000/api/login', this.form.getRawValue(), {
-       withCredentials: true
-    })
-    .subscribe( () => this.router.navigate(['/'])
-    );
+
+   form = new FormGroup({
+    username: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  });
+  submit(){
+    if(this.form.valid){
+    this.service.proceedLogin(this.form.value).subscribe(result =>{
+      if(result!= null){
+       this.responsedata = result;
+       localStorage.setItem('token',this.responsedata.token);
+       localStorage.setItem('refreshtoken', this.responsedata.refreshToken);
+       this.router.navigate(['/clerk']);
+      }
+    }); 
   }
+ }
 }
 
-function next(next: any, arg1: () => Promise<boolean>) {
-  throw new Error('Function not implemented.');
-}
