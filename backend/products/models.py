@@ -2,12 +2,31 @@ from django.db import models
 from auths.models import User, Clerk, Admin
 
 
+class Store(models.Model):
+    name = models.CharField(max_length=100)
+    admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
+    clerk = models.ForeignKey(Clerk, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
+
+    def save_store(self):
+        self.save()
+
+    def delete_store(self):
+        self.order()
+
+    @classmethod
+    def all_stores(cls):
+        return cls.objects.all()
+
+
 class Product(models.Model):
-    product_id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
     created_date = models.DateField(auto_now_add=True)
     cost = models.IntegerField(default=0)
     price = models.IntegerField(default=0)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -29,7 +48,6 @@ class Stock(models.Model):
         ('Unpaid', 'Unpaid'),
 
     )
-    stock_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -57,7 +75,6 @@ class Stock(models.Model):
 
 
 class Order_request(models.Model):
-    request_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -78,7 +95,6 @@ class Order_request(models.Model):
 
 
 class Order_post(models.Model):
-    post_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -96,25 +112,4 @@ class Order_post(models.Model):
 
     @classmethod
     def all_posts(cls):
-        return cls.objects.all()
-
-
-class Store(models.Model):
-    store_id = models.BigAutoField(primary_key=True)
-    name = models.CharField(max_length=100)
-    admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
-    clerk = models.ForeignKey(Clerk, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
-
-    def save_store(self):
-        self.save()
-
-    def delete_store(self):
-        self.order()
-
-    @classmethod
-    def all_stores(cls):
         return cls.objects.all()

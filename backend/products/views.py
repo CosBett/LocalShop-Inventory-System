@@ -1,4 +1,4 @@
-from serializer import ProductSerializer, StockSerializer, OrderPostSerializer, OrderRequestSerializer, StoreSerializer
+from .serializers import ProductSerializer, StockSerializer, OrderPostSerializer, OrderRequestSerializer, StoreSerializer
 from rest_framework import viewsets, permissions
 from .models import Product, Stock, Store, Order_post, Order_request
 
@@ -22,7 +22,7 @@ class OrderPostViewSet(viewsets.ModelViewSet):
     
     permission_classes = [permissions.IsAuthenticated]    
 
-class OrderRequestSerializer(viewsets.ModelViewSet):
+class OrderRequestViewSet(viewsets.ModelViewSet):
     queryset = Order_request.objects.all()
     serializer_class = OrderRequestSerializer
     
