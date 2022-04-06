@@ -1,9 +1,9 @@
 from django.db import models
-from auth.models import User, Clerk, Admin
+from auths.models import User, Clerk, Admin
 
 
 class Product(models.Model):
-    product_id = models.IntegerField(primary_key=True, increment=True)
+    product_id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
     created_date = models.DateField(auto_now_add=True)
     cost = models.IntegerField(default=0)
@@ -19,20 +19,17 @@ class Product(models.Model):
         self.delete()
 
     @classmethod
-    def search_payment(cls, title):
-        return cls.objects.filter(title__icontains='name').all()
-
-    @classmethod
     def all_product(cls):
         return cls.objects.all()
-    
+
+
 class Stock(models.Model):
     PAYMENT_CHOICE = (
         ('paid', 'Paid'),
         ('Unpaid', 'Unpaid'),
 
     )
-    stock_id = models.IntegerField(primary_key=True, increment=True)
+    stock_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -51,12 +48,16 @@ class Stock(models.Model):
         self.delete()
 
     @classmethod
+    def search_payment(cls, title):
+        return cls.objects.filter(title__icontains='name').all()
+
+    @classmethod
     def all_stock(cls):
         return cls.objects.all()
 
 
 class Order_request(models.Model):
-    order_id = models.IntegerField(primary_key=True, increment=True)
+    order_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -72,11 +73,12 @@ class Order_request(models.Model):
         self.order()
 
     @classmethod
-    def all_request(cls):
+    def all_requests(cls):
         return cls.objects.all()
 
+
 class Order_post(models.Model):
-    order_id = models.IntegerField(primary_key=True, increment=True)
+    order_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -86,21 +88,33 @@ class Order_post(models.Model):
     def __str__(self):
         return self.product.name
 
-    def save_order(self):
+    def save_post(self):
         self.save()
 
-    def delete_stock(self):
+    def delete_post(self):
         self.order()
 
     @classmethod
-    def all_orders(cls):
+    def all_posts(cls):
         return cls.objects.all()
-        
 
-class Store(models.Model):  
-    store_id = models.IntegerField(primary_key=True, increment=True)
+
+class Store(models.Model):
+    store_id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
     admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
     clerk = models.ForeignKey(Clerk, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-       
+
+    def __str__(self):
+        return self.name
+
+    def save_store(self):
+        self.save()
+
+    def delete_store(self):
+        self.order()
+
+    @classmethod
+    def all_stores(cls):
+        return cls.objects.all()
