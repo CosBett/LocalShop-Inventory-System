@@ -57,7 +57,7 @@ class Stock(models.Model):
 
 
 class Order_request(models.Model):
-    order_id = models.BigAutoField(primary_key=True)
+    request_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
@@ -78,7 +78,7 @@ class Order_request(models.Model):
 
 
 class Order_post(models.Model):
-    order_id = models.BigAutoField(primary_key=True)
+    post_id = models.BigAutoField(primary_key=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=0)
     created_date = models.DateField(auto_now_add=True)
