@@ -1,0 +1,32 @@
+#sect1 {
+  height: 100vh;
+  background-image: url("../../assets/images/landing.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#welcome {
+  margin: auto;
+  padding: 2%;
+  text-align: center;
+  font-size: 7rem;
+}
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 4rem;
+}
+
+button {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1rem;
+  color: #37FF8B
+}
+
+#create {
+  float: right;
+  position: relative;
+  right: 4%;
+  top: 4%;
+}
