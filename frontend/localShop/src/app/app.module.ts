@@ -27,6 +27,7 @@ import { AddClerkComponent } from './add-clerk/add-clerk.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     AddClerkComponent,
     LoginComponent,
     LandingpageComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
