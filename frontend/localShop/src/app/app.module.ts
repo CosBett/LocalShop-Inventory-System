@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import{HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {MatSidenavModule } from '@angular/material/sidenav';
 import { ToggleComponent } from './toggle/toggle.component';
 import { RoutesComponent } from './routes/routes.component';
