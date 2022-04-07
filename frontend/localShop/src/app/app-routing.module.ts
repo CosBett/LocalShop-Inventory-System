@@ -10,21 +10,29 @@ import { FooterComponent } from './routes/footer/footer.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
 import { ToggleComponent } from './toggle/toggle.component';
-import {AddClerkComponent} from './add-clerk/add-clerk.component';
+import { AddClerkComponent } from './add-clerk/add-clerk.component';
+import { LoginComponent } from './login/login.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
+// import { RegisterComponent } from './register/register.component';
+
+
 
 const routes: Routes = [
- {path:'static', component:ToggleComponent, pathMatch:'full'},
- {path:'tables', component:TablesComponent},
- {path:'footer', component:FooterComponent},
- {path:'navbar', component:NavbarComponent},
- {path:'charts', component:ChartsComponent},
- {path:'products', component:ProductsComponent},
- {path:'addclerk', component:AddClerkComponent},
- {path:'addproduct', component:AddproductComponent},
- {path:'purchases', component:PurchaseComponent},
- {path:'sales',component:SalesComponent},
- {path:'', component:DashboardComponent}
- 
+  { path: 'static', component: ToggleComponent, pathMatch: 'full' },
+  { path: 'tables', component: TablesComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'navbar', component: NavbarComponent },
+  { path: 'charts', component: ChartsComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'addclerk', component: AddClerkComponent },
+  { path: 'addproduct', component: AddproductComponent },
+  { path: 'purchases', component: PurchaseComponent },
+  { path: 'sales', component: SalesComponent },
+  { path: 'admin', component: DashboardComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', component: LandingpageComponent },
+  // { path: '', component: RegisterComponent },
+
 
 
 ];
