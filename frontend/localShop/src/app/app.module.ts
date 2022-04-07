@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSortModule } from '@angular/material/sort';
-import{MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,9 +9,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {MatSidenavModule } from '@angular/material/sidenav';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { ToggleComponent } from './toggle/toggle.component';
 import { RoutesComponent } from './routes/routes.component';
 import { ChartsComponent } from './routes/charts/charts.component';
@@ -25,6 +24,8 @@ import { SalesComponent } from './sales/sales.component';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddClerkComponent } from './add-clerk/add-clerk.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -42,10 +43,7 @@ import { AddClerkComponent } from './add-clerk/add-clerk.component';
     SalesComponent,
     DashboardComponent,
     AddClerkComponent,
-  
-  
-  
-  
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,16 +55,16 @@ import { AddClerkComponent } from './add-clerk/add-clerk.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
-    BrowserModule, 
+    BrowserModule,
     DashboardLayoutModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas:[
+  schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
