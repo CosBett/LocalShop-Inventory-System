@@ -18,15 +18,14 @@ import { RoutesComponent } from './routes/routes.component';
 import { ChartsComponent } from './routes/charts/charts.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { FooterComponent } from './routes/footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
-import { ClerkComponent } from './clerk/clerk.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SalesComponent } from './sales/sales.component';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { AddClerkComponent } from './add-clerk/add-clerk.component';
 
 
 @NgModule({
@@ -39,11 +38,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FooterComponent,
     NavbarComponent,
     ProductsComponent,
-    ClerkComponent,
     AddproductComponent,
     PurchaseComponent,
     SalesComponent,
     DashboardComponent,
+    AddClerkComponent,
   
   
   
