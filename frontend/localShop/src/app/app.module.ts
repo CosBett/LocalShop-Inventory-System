@@ -64,7 +64,7 @@ import { RegisterComponent } from './register/register.component';
     BrowserModule,
     DashboardLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,8 +13,8 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { AddClerkComponent } from './add-clerk/add-clerk.component';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
-// import { RegisterComponent } from './register/register.component';
-
+import { RegisterComponent } from './register/register.component';
+import {ClerkComponent} from './clerk/clerk.component';
 
 
 const routes: Routes = [
@@ -31,7 +31,8 @@ const routes: Routes = [
   { path: 'admin', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: '', component: LandingpageComponent },
-  // { path: '', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
+  {path:'clerk', component: ClerkComponent},
 
 
 
