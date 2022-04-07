@@ -1,96 +1,67 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid  justify-content-end">
-    <a>
-      <a href="#" class=" btn" aria-expanded="false">
-        <div class="d-flex justify-center">
-          <img src="../../assets/images/clerk.png " id='clerk_img' lt=" ">
-          <div class="">
-            <p class="mt-3">Susan Mwano</p>
-            <p>Store Clerk</p>
-          </div>
-
-          <div class=" nav-link dropdown-toggle mt-3 "></div>
-        </div>
-      </a>
-      <ul class="dropdown-menu " aria-labelledby="navbarDropdown ">
-        <li><a class="dropdown-item " href="# ">Action</a></li>
-        <li><a class="dropdown-item " href="# ">Another action</a></li>
-        <li>
-          <hr class="dropdown-divider ">
-        </li>
-        <li><a class="dropdown-item " href="# ">Something else here</a></li>
-      </ul>
-    </a>
-  </div>
-</nav>
-<div>
-  <h1 class="text-center">Stock Records Details</h1>
+<div class="card-body">
+    <!-- table 1 -->
+    <div class="table-responsive">
+        <table class="table table-bordered" id="datatable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Age</th>
+                    <th>Start Date</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>clerk</td>
+                    <td>32</td>
+                    <td>2011/04/25</td>
+                    <td>32,000</td>
+                </tr>
+                <tr>
+                    <td>Tony</td>
+                    <td>clerk</td>
+                    <td>22</td>
+                    <td>2014/09/20</td>
+                    <td>32,000</td>
+                </tr>
+                <tr>
+                    <td>Jane</td>
+                    <td>clerk</td>
+                    <td>42</td>
+                    <td>2010/12/15</td>
+                    <td>32,000</td>
+                </tr>
+                <tr>
+                    <td>Simon</td>
+                    <td>clerk</td>
+                    <td>30</td>
+                    <td>2016/01/16</td>
+                    <td>32,000</td>
+                </tr>
+                <tr>
+                    <td>Phoebe</td>
+                    <td>clerk</td>
+                    <td>52</td>
+                    <td>2013/11/28</td>
+                    <td>32,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<div>
-  <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="product,payment,date" #input>
-  </mat-form-field>
+<script>
+    function addItem(){
+        var li = document.createElement("LI");  
+        var input = document.getElementById("add");
+        li.innerHTML = input.value;
+        input.value = "";
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
+        document.getElementById("faves").appendChild(li);
+    }
+</script>
 
-      <!-- ID Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-      </ng-container>
+<input type="button" id="btnAdd" value="Add" onclick="addItem()">
 
-      <!-- Date Column -->
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-        <td mat-cell *matCellDef="let row"> {{row.Date}}% </td>
-      </ng-container>
-      <!-- Name Column -->
-      <ng-container matColumnDef="received_qty">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> received_qty </th>
-        <td mat-cell *matCellDef="let row"> {{row.received_qty}} </td>
-      </ng-container>
 
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="product">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
-        <td mat-cell *matCellDef="let row"> {{row.product}} </td>
-      </ng-container>
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="payment">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> payment </th>
-        <td mat-cell *matCellDef="let row"> {{row.payment}} </td>
-      </ng-container>
-      <!-- Name Column -->
-      <ng-container matColumnDef="current_stock">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> current_stock </th>
-        <td mat-cell *matCellDef="let row"> {{row.current_stock}} </td>
-      </ng-container>
-
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="spoilt">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> spoilt </th>
-        <td mat-cell *matCellDef="let row"> {{row.spoilt}} </td>
-      </ng-container>
-      <!-- Fruit Column -->
-      <ng-container matColumnDef="cost">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> cost </th>
-        <td mat-cell *matCellDef="let row"> {{row.cost}} </td>
-      </ng-container>
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> price </th>
-        <td mat-cell *matCellDef="let row"> {{row.price}} </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-      <!-- Row shown when there is no matching data. -->
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-
-  </div>

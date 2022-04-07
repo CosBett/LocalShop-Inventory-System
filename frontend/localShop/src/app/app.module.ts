@@ -4,31 +4,49 @@ import { MatSortModule } from '@angular/material/sort';
 import{MatPaginatorModule} from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { ClerkComponent } from './clerk/clerk.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import{HttpClientModule} from '@angular/common/http';
-import { SuperuserComponent } from './superuser/superuser.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import {MatSidenavModule } from '@angular/material/sidenav';
+import { ToggleComponent } from './toggle/toggle.component';
+import { RoutesComponent } from './routes/routes.component';
+import { ChartsComponent } from './routes/charts/charts.component';
+import { TablesComponent } from './routes/tables/tables.component';
+import { FooterComponent } from './routes/footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProductsComponent } from './products/products.component';
+import { ClerkComponent } from './clerk/clerk.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
+import { PurchaseComponent } from './purchase/purchase.component';
+import { SalesComponent } from './sales/sales.component';
+import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingpageComponent,
+    ToggleComponent,
+    RoutesComponent,
+    ChartsComponent,
+    TablesComponent,
+    FooterComponent,
+    NavbarComponent,
+    ProductsComponent,
     ClerkComponent,
-    LoginComponent,
-    RegisterComponent,
-    SuperuserComponent,
-    SidenavComponent,
+    AddproductComponent,
+    PurchaseComponent,
+    SalesComponent,
+    DashboardComponent,
+  
+  
+  
   
   ],
   imports: [
@@ -45,6 +63,8 @@ import {MatSidenavModule } from '@angular/material/sidenav';
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
+    BrowserModule, 
+    DashboardLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
