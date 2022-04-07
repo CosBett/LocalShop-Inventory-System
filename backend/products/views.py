@@ -10,6 +10,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     
     permission_classes = [permissions.IsAuthenticated]
 
+
 class StockViewSet(viewsets.ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer

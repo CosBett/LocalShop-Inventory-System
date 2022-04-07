@@ -14,7 +14,7 @@ class Store(models.Model):
         self.save()
 
     def delete_store(self):
-        self.order()
+        self.delete()
 
     @classmethod
     def all_stores(cls):

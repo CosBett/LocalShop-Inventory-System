@@ -5,6 +5,10 @@ from rest_framework.authtoken.models import Token
 from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSerializer
 from rest_framework.authtoken.views import ObtainAuthToken, APIView
 from .permissions import IsAdminUser, IsClerkUser
+from django.core.mail import send_mail
+from decouple import config
+from django.conf import settings
+from django.http import HttpResponse
 
 
 class AdminSignupView(generics.GenericAPIView):
@@ -70,3 +74,15 @@ class ClerkOnlyView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class SendEmailView(APIView):
+    def post(self, request, format=None):
+        data = request.data
+        email = data.get('email')
+        name = data.get('name')
+        subject = ''
+        message = ' it  means a world to us '
+        res = send_mail(subject, message, settings.EMAIL_HOST_USER, [email],)
+
+        return HttpResponse(res)
