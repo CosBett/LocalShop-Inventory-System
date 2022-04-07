@@ -22,18 +22,27 @@ export class ClerkComponent implements AfterViewInit {
   // paginator!: MatPaginator;
   // @ViewChild(MatSort)
   // sort!: MatSort;
-
+  
   constructor(private stockService: StockService) {
    
     // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(products);
   }
-
   ngAfterViewInit() {
+
+    this.onGetStocks();
     // this.dataSource.paginator = this.paginator;
     // this.dataSource.sort = this.sort;
   }
 
+  onGetStocks(): void {
+    this.stockService.getStocks().subscribe(
+      (response) => console.log(response),
+      (error:any) => console.log(error),
+      () => console.log('Done getting stocks'),
+    );
+  }
+ 
   // applyFilter(event: Event) {
   //   const filterValue = (event.target as HTMLInputElement).value;
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
