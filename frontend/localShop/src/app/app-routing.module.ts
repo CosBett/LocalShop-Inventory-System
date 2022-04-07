@@ -11,12 +11,10 @@ import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { AddClerkComponent } from './add-clerk/add-clerk.component';
-import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import {ClerkComponent} from './clerk/clerk.component';
-
-
+import {SigninComponent} from './signin/signin.component';
 const routes: Routes = [
   { path: 'static', component: ToggleComponent, pathMatch: 'full' },
   { path: 'tables', component: TablesComponent },
@@ -29,11 +27,10 @@ const routes: Routes = [
   { path: 'purchases', component: PurchaseComponent },
   { path: 'sales', component: SalesComponent },
   { path: 'admin', component: DashboardComponent },
-  { path: 'login', component: LoginComponent },
   { path: '', component: LandingpageComponent },
   { path: 'register', component: RegisterComponent },
   {path:'clerk', component: ClerkComponent},
-
+  {path:'signin', component: SigninComponent}
 
 
 ];

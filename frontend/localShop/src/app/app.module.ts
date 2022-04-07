@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
+import { SigninComponent } from './signin/signin.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     LandingpageComponent,
     RegisterComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
