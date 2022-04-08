@@ -1,0 +1,28 @@
+table {
+  width: 95%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+  font-weight: 400;
+}
+
+h1 {
+  margin-top: 2vh;
+}
+
+.filter {
+  font-size: 20px;
+}
+
+th {
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+}

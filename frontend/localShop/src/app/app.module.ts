@@ -1,7 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,8 +28,13 @@ import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
-
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
+import { ClerkComponent } from './clerk/clerk.component';
+import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
+import { RequestStockComponent } from './request-stock/request-stock.component';
+import { PostStockComponent } from './post-stock/post-stock.component';
+import { ProductClerkComponent } from './product-clerk/product-clerk.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,13 +54,20 @@ import { SigninComponent } from './signin/signin.component';
     LandingpageComponent,
     RegisterComponent,
     SigninComponent,
+    ClerkComponent,
+    NavClerkComponent,
+    ClerkDashboardComponent,
+    RequestStockComponent,
+    PostStockComponent,
+    ProductClerkComponent,
+  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatPaginatorModule,
+    MatPaginatorModule ,
     MatSortModule,
     MatTableModule,
     MatFormFieldModule,
@@ -73,9 +84,7 @@ import { SigninComponent } from './signin/signin.component';
   ],
   bootstrap: [AppComponent],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-    
-  ]
-
+    CUSTOM_ELEMENTS_SCHEMA],
+ 
 })
 export class AppModule { }

@@ -13,8 +13,14 @@ import { ToggleComponent } from './toggle/toggle.component';
 import { AddClerkComponent } from './add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
-import {ClerkComponent} from './clerk/clerk.component';
-import {SigninComponent} from './signin/signin.component';
+import { ClerkComponent } from './clerk/clerk.component';
+import { SigninComponent } from './signin/signin.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
+import { ProductClerkComponent } from './product-clerk/product-clerk.component';
+
+
 const routes: Routes = [
   { path: 'static', component: ToggleComponent, pathMatch: 'full' },
   { path: 'tables', component: TablesComponent },
@@ -29,14 +35,19 @@ const routes: Routes = [
   { path: 'admin', component: DashboardComponent },
   { path: '', component: LandingpageComponent },
   { path: 'register', component: RegisterComponent },
-  {path:'clerk', component: ClerkComponent},
-  {path:'signin', component: SigninComponent}
-
+  { path: 'table-stock', component: ClerkComponent },
+  { path: 'signin', component: SigninComponent },
+  { path: 'nav-clerk', component: NavClerkComponent },
+  {path:'clerk', component: ClerkDashboardComponent},
+  {path:'product',component:ProductClerkComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule { }

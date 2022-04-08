@@ -33,7 +33,6 @@ export class SigninComponent implements OnInit {
       if(result!= null){
        this.responsedata = result;
        localStorage.setItem('Authorization','Token'+' '+ this.responsedata.token);
-    
        localStorage.setItem('Token', this.responsedata.refreToken);
        localStorage.setItem('mandela', 'i am here')
        this.router.navigate(['/admin']);

@@ -4,7 +4,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
 export interface UserData {
-  date: Date;
+  date: string;
   received_qty: string;
   product: string;
   payment: string;
@@ -15,12 +15,12 @@ export interface UserData {
 }
 
 /** Constants used to fill up our data base. */
-const DATE: Date[] = [
-  new Date(2022, 30, 3),
-  new Date(2022, 31, 3),
-  new Date(2022, 20, 3),
-  new Date(2022, 20, 3),
-
+const DATER: string[] = [
+  '2022/30/3',
+  '2022/31/3',
+  '2022/30/3',
+  '2022/31/3'
+ 
  
 ];
 const RECEIVED_QTY: number[] = [
@@ -117,7 +117,7 @@ export class ClerkComponent implements AfterViewInit {
 function createNewproduct(id: number): UserData {
   const date = new Date
   return {
-    date: DATE[id - 1],
+    date: DATER[id - 1],
     received_qty: RECEIVED_QTY[id - 1] + '',
     product: PRODUCT[id - 1],
     payment: PAYMENT[id - 1],

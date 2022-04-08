@@ -9,10 +9,10 @@
         <a>
           <a href="#" class=" btn" id="profile" aria-expanded="false">
             <div class="d-flex justify-center">
-              <img src="../../assets/images/super.png " id='clerk_img' lt=" ">
+              <img src="../../assets/images/clerk.png " id='clerk_img' lt=" ">
               <div class="">
-                <p class="mt-3">Prime Mandela</p>
-                <p>Store Admin</p>
+                <p class="mt-3">Susan Mwano</p>
+                <p>Store Clerk</p>
               </div>
 
               <div class=" nav-link dropdown-toggle mt-3 "></div>
@@ -30,7 +30,6 @@
       </div>
     </div>
 
-
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
 
@@ -43,43 +42,20 @@
 
         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link active mb-4 mt-2" aria-current="page" href="/admin">Admin Dashboard</a>
+            <a class="nav-link active mb-4 mt-2" aria-current="page" href="/clerk"> Clerk Dashboard</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle mb-4" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Products
-              </a>
-            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item" routerLink="/addproduct">Add Product</a></li>
-              <li><a class="dropdown-item" routerLink="/products">Product List</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-            </ul>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle mb-4" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Trading
-                </a>
-              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                <li><a class="dropdown-item" routerLink="/purchases">Purchase</a></li>
-                <li><a class="dropdown-item" routerLink="/sales">Sales</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active mb-4" aria-current="page" routerLink="">Stock Requests</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active mb-4" aria-current="page" routerLink="">Stock Posted</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active mb-4" aria-current="page" routerLink="/addclerk">Add Clerk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active mb-4" aria-current="page" routerLink="/">Logout</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link active mb-4" aria-current="page" routerLink="/product">Product List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active mb-4" aria-current="page" routerLink="">Post Stock</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active mb-4" aria-current="page" routerLink="">Request Stock</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Logout</a>
+          </li>
         </ul>
       </div>
     </div>
