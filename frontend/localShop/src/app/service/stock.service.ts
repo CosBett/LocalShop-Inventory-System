@@ -10,8 +10,8 @@ import { Stock } from '../interface/stock';
 })
 export class StockService {
 
-  apiurl = 'http://127.0.0.1:8000/api/stocks/';
-
+  apiurl = 'http://127.0.0.1:8000/api/get_stock/';
+ 
   constructor(private http:HttpClient) {
   }
 

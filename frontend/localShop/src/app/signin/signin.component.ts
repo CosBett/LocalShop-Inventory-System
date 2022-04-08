@@ -32,8 +32,10 @@ export class SigninComponent implements OnInit {
     this.service.proceedLogin(this.form.value).subscribe(result =>{
       if(result!= null){
        this.responsedata = result;
-       localStorage.setItem('token',this.responsedata.token);
-       localStorage.setItem('refreshtoken', this.responsedata.refreshToken);
+       localStorage.setItem('Authorization','Token'+' '+ this.responsedata.token);
+    
+       localStorage.setItem('Token', this.responsedata.refreToken);
+       localStorage.setItem('mandela', 'i am here')
        this.router.navigate(['/admin']);
       }
     }); 

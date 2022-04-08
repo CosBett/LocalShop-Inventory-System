@@ -11,7 +11,8 @@ export class DashboardComponent implements OnInit {
   constructor(private stockService: StockService) {
    
   }
-  ngOnInit(): void {
+
+   ngOnInit(): void {
   
     this.onGetStocks();
    
@@ -24,6 +25,4 @@ export class DashboardComponent implements OnInit {
       () => console.log('Done getting stocks'),
     );
   }
- 
-
 }

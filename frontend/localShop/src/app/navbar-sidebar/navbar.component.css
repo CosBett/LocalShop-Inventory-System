@@ -18,3 +18,19 @@
   right: 3%;
   top: 3%;
 }
+
+.profile {
+  float: right;
+}
+
+#clerk_img {
+  height: 9vh;
+  width: 5vw;
+  border-radius: 50%;
+}
+
+p {
+  font-size: 1.2vw;
+  font-weight: bold;
+  line-height: 0.7;
+}
