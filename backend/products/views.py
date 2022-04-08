@@ -1,3 +1,4 @@
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import ProductSerializer, StockSerializer, OrderPostSerializer, OrderRequestSerializer, StoreSerializer
@@ -14,20 +15,14 @@ class ProductViewSet(viewsets.ModelViewSet):
     authentication_classes = [permissions.IsAuthenticated]
 
 
-class StockViewSet(APIView):
-    # queryset = Stock.objects.all()
-    # serializer_class = StockSerializer
+class StockViewSet(viewsets.ModelViewSet):
+    queryset = Stock.objects.all()
+    serializer_class = StockSerializer
 
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
     
-    def get(self, request, format=None):
-        content = {
-            'user': str(request.user),  # `django.contrib.auth.User` instance.
-            'auth': str(request.auth),  # None
-        }
-        return Response(content)
-
+ 
 class OrderPostViewSet(viewsets.ModelViewSet):
     queryset = Order_post.objects.all()
     serializer_class = OrderPostSerializer

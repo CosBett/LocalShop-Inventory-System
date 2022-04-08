@@ -6,7 +6,6 @@ from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSeria
 from rest_framework.authtoken.views import ObtainAuthToken, APIView
 from .permissions import IsAdminUser, IsClerkUser
 from django.core.mail import send_mail
-from decouple import config
 from django.conf import settings
 from django.http import HttpResponse
 
