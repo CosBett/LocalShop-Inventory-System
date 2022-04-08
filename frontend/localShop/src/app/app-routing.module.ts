@@ -19,6 +19,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
 import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
 import { ProductClerkComponent } from './product-clerk/product-clerk.component';
+import{RequestStockComponent} from './request-stock/request-stock.component';
+import {PostStockComponent} from './post-stock/post-stock.component';
+
 
 
 const routes: Routes = [
@@ -39,7 +42,9 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'nav-clerk', component: NavClerkComponent },
   {path:'clerk', component: ClerkDashboardComponent},
-  {path:'product',component:ProductClerkComponent}
+  {path:'product',component:ProductClerkComponent},
+  {path:'stock_requests', component:RequestStockComponent},
+  {path:'post_stock', component:PostStockComponent},
 
 ];
 

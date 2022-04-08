@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
        localStorage.setItem('Authorization','Token'+' '+ this.responsedata.token);
        localStorage.setItem('Token', this.responsedata.refreToken);
        localStorage.setItem('mandela', 'i am here')
-       this.router.navigate(['/admin']);
+       this.router.navigate(['/clerk']);
       }
     }); 
   }
