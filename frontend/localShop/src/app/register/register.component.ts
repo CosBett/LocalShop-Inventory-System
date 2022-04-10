@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
        this.http.post('http://localhost:8000/api/register/clerk/', this.form.getRawValue()).subscribe(
         next => {
         this.router.navigate(['/login']);
-
        }
       );
    }

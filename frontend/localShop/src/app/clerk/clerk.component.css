@@ -7,10 +7,15 @@ table {
   width: 100%;
 }
 
+.stock_table {
+  width: 80%;
+}
+
 td,
 th {
-  width: 25%;
+  width: 15%;
   font-weight: 400;
+  font-size: 10px;
 }
 
 h1 {
@@ -18,11 +23,11 @@ h1 {
 }
 
 .filter {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 th {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 700;
   color: black;
 }

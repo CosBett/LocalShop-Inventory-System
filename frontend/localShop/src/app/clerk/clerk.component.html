@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="text-center">Stock Records Details</h1>
 
-  <div>
+  <div class="container stock_table">
     <mat-form-field appearance="standard">
       <mat-label class="filter shadow-lg">Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder=" Search for Product, Payment, Quantity, Date" #input>
@@ -21,20 +21,21 @@
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
           <td mat-cell *matCellDef="let row"> {{row.date}} </td>
         </ng-container>
+        <!-- Fruit Column -->
+        <ng-container matColumnDef="product">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+          <td mat-cell *matCellDef="let row"> {{row.product}} </td>
+        </ng-container>
         <!-- Name Column -->
         <ng-container matColumnDef="received_qty">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Received Quantity</th>
           <td mat-cell *matCellDef="let row"> {{row.received_qty}} </td>
         </ng-container>
 
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="product">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
-          <td mat-cell *matCellDef="let row"> {{row.product}} </td>
-        </ng-container>
+
         <!-- Fruit Column -->
         <ng-container matColumnDef="payment">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment </th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Payment Status</th>
           <td mat-cell *matCellDef="let row"> {{row.payment}} </td>
         </ng-container>
         <!-- Name Column -->

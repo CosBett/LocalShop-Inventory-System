@@ -81,7 +81,7 @@ const PRICE: number[] = [
 })
 
 export class ClerkComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'date', 'received_qty', 'product', 'payment', 'current_stock', 'spoilt', 'cost', 'price'];
+  displayedColumns: string[] = ['id', 'date',  'product', 'payment','received_qty', 'current_stock', 'spoilt', 'cost', 'price'];
  
   dataSource: MatTableDataSource<UserData>;
 
@@ -118,8 +118,8 @@ function createNewproduct(id: number): UserData {
   const date = new Date
   return {
     date: DATER[id - 1],
-    received_qty: RECEIVED_QTY[id - 1] + '',
     product: PRODUCT[id - 1],
+    received_qty: RECEIVED_QTY[id - 1] + '',
     payment: PAYMENT[id - 1],
     current_stock: CURRENT_STOCK[id - 1],
     spoilt: SPOILT[id - 1],

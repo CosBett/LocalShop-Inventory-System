@@ -1,10 +1,10 @@
-<div class="container signin">
-  <main class="card shadow-lg form-signin" width="100vw">
+<div class="container signup">
+  <main class="card shadow-lg form-signup" width="100vw">
 
     <form [formGroup]="form" (ngSubmit)="submit()">
 
       <div class="text-center"> <img class="mb-4" src="../../assets/images/logo.png" alt="" width="60%" height="30%"></div>
-      <h1 class="h3 mb-3 fw-normal">Register here</h1>
+      <h2 class="h3 mb-3 fw-normal">Register here</h2>
       <div class="form-floating">
         <input formControlName="username" class="form-control mb-2" type="name" placeholder="Name">
         <label for="floatingInput">username</label>
@@ -24,7 +24,7 @@
       </div>
       <button class="w-100 btn btn-lg btn-outline-primary" type="submit">Create Account</button>
       <p> Already have an account?
-        <a routerLink="/signin" class="btn text-center"> Sign in Here
+        <a routerLink="/signin" class="btn text-center rounded-pill"> Sign in Here
         </a>
       </p>
     </form>

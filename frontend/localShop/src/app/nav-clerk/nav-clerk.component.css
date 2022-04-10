@@ -5,6 +5,12 @@
     text-align: center;
   }
   
+  .navbar-toggler {
+    height: 100%;
+    display: flex;
+    align-self: center;
+  }
+  
   .navbar {
     background-color: rgb(21, 21, 250);
     height: 12%
