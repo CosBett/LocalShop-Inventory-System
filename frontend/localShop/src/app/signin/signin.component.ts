@@ -30,26 +30,15 @@ export class SigninComponent implements OnInit {
     this.get_Stocks()
   }
 
-  submit() {
-    this.authService.login(this.form.value)
-    .subscribe((data)=>console.log(data))
-  
-  }
 
   get_Stocks() {
     this.authService.getStocks()
     .subscribe((data)=>console.log(data))
   }
-  // submit(){
 
-  //   if(this.form.valid){
-  //     return;
-  //   }
-  //   this.authService
-  //   .login(this.form.get('username')?.value, this.form.get('password')?.value)
-  //   .subscribe((response: any) => {
-  //     this.router.navigate(['/register'])
-  //   });
-    
-
+  submit(): void{
+      this.http.post('http://localhost:8000/api/login', this.form.getRawValue(), {
+        withCredentials: true
+      }).subscribe(() => this.router.navigate(['/clerk']));
+    }
 }

@@ -29,9 +29,11 @@ export class RegisterComponent implements OnInit {
     });
   }
   submit() {
-    this.http.post('http://localhost:8000/api/register/admin/', this.form.getRawValue()).subscribe(
+    this.http.post('http://localhost:8000/api/register/admin/', this.form.getRawValue())
+    .subscribe(
       next => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/signin']);
+        console.log(next);
       }
     );
   }
