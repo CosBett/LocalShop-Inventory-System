@@ -1,81 +1,87 @@
-from django.shortcuts import render
-from rest_framework.views import APIView
-from .serializers import UserSerializer
+
+from rest_framework import generics, status, permissions
 from rest_framework.response import Response
-from rest_framework.exceptions import AuthenticationFailed
-import jwt
-import datetime
+from rest_framework.authtoken.models import Token
+from .serializers import UserSerializer, AdminSignupSerializer, ClerkSignupSerializer
+from rest_framework.authtoken.views import ObtainAuthToken, APIView
+from .permissions import IsAdminUser, IsClerkUser
+from django.core.mail import send_mail
+from django.conf import settings
+from django.http import HttpResponse
 
-from .models import User
 
+class AdminSignupView(generics.GenericAPIView):
+    serializer_class = AdminSignupSerializer
 
-class RegisterView(APIView):
-    def post(self, request):
-        serializer = UserSerializer(data=request.data)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
+        user = serializer.save()
+        return Response({
+            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "token": user.auth_token.key,
+            'Message': 'Account created successfully'
+        })
 
 
-class LoginView(APIView):
-    def post(self, request):
-        email = request.data['email']
-        password = request.data['password']
+class ClerkSignupView(generics.GenericAPIView):
+    serializer_class = ClerkSignupSerializer
 
-        user = User.objects.filter(email=email).first()
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({
+            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "token": user.auth_token.key,
+            'Message': 'Account created successfully'
+        })
 
-        if user is None:
-            raise AuthenticationFailed('User not found')
-        if not user.check_password(password):
-            raise AuthenticationFailed('Password is incorrect')
 
-        payload = {
-            'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=120),
-            'iat': datetime.datetime.utcnow()
-        }
-        token = jwt.encode(payload, 'secret', algorithm='HS256')
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'user_id': user.pk,
+            'is_admin': user.is_admin,
+            'email': user.email
+        })
 
-        response = Response()
 
-        response.set_cookie(key='jwt', value=token, httponly=True)
-
-        response.data = {
-            'jwt': token
-        }
-
-        response.data = {
-
-        }
-
-        return response
-
-class UserView(APIView):
-   
-   def get(self,request):
-      token = request.COOKIES.get('jwt')
-     
-      if not token:
-        raise AuthenticationFailed('Unauthenticated')
-    
-      try:
-         payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-      
-      except jwt.ExpiredSignatureError:
-         raise AuthenticationFailed('Unauthenticated')
-         
-      user = User.objects.filter(id=payload['id']).first()
-      
-      serializer= UserSerializer(user)
-      
-      return Response(serializer.data)
-    
 class LogoutView(APIView):
-  def post(self,request):
-    response = Response()
-    response.delete_cookie('jwt')
-    response.data ={
-      'message':'success'
-    }
-    return response   
-    
+    def post(self, request, format=None):
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
+
+
+class AdminOnlyView(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated and IsAdminUser]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+class ClerkOnlyView(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated and IsClerkUser]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+class SendEmailView(APIView):
+    def post(self, request, format=None):
+        data = request.data
+        email = data.get('email')
+        name = data.get('name')
+        subject = ''
+        message = ' it  means a world to us '
+        res = send_mail(subject, message, settings.EMAIL_HOST_USER, [email],)
+
+        return HttpResponse(res)

@@ -1,11 +1,13 @@
 .offcanvas-body {
-  background-color: rgb(218, 245, 245);
+  background-color: #0E6EFD;
   font-family: 'Acme', sans-serif;
-  font-size: 150%;
+  font-size: 180%;
+  text-align: center;
 }
 
 .navbar {
   background-color: rgb(21, 21, 250);
+  height: 12%
 }
 
 .offcanvas-header {
@@ -17,4 +19,30 @@
   position: absolute;
   right: 3%;
   top: 3%;
+}
+
+.profile {
+  float: right;
+}
+
+#clerk_img {
+  height: 9vh;
+  width: 5vw;
+  border-radius: 50%;
+}
+
+p {
+  font-size: 1.2vw;
+  font-weight: bold;
+  line-height: 0.7;
+  color: white;
+}
+
+.navprofile {
+  width: 100%;
+}
+
+.clerk_profile {
+  display: flex;
+  justify-content: end;
 }
