@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-
+import {ApiService} from '../service/api.service';
 
 @Component({
   selector: 'app-signin',
@@ -20,7 +20,7 @@ export class SigninComponent implements OnInit {
    
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
+    private authService: AuthService,  
     private router: Router
   ) { }
   
@@ -35,14 +35,9 @@ export class SigninComponent implements OnInit {
       return;
     }
     this.authService
-    .login(this.form.value.username, this.form.value.password)
-    .subscribe((response) => {
-      this.responsedata = response;
-      console.log(this.responsedata);
-      if(this.responsedata.status == 200){
-        this.router.navigate(['/clerk']);
-      }
-
+    .login(this.form.get('username')?.value, this.form.get('password')?.value)
+    .subscribe((response: any) => {
+      this.router.navigate(['/register'])
     });
     
 
