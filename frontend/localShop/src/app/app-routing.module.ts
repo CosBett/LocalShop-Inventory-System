@@ -21,6 +21,7 @@ import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.compo
 import { ProductClerkComponent } from './product-clerk/product-clerk.component';
 import{RequestStockComponent} from './request-stock/request-stock.component';
 import {PostStockComponent} from './post-stock/post-stock.component';
+import { StocksComponent } from './stocks/stocks.component';
 
 
 
@@ -45,6 +46,7 @@ const routes: Routes = [
   {path:'product',component:ProductClerkComponent},
   {path:'stock_requests', component:RequestStockComponent},
   {path:'post_stock', component:PostStockComponent},
+  {path:'stocks', component:StocksComponent}
 
 ];
 

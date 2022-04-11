@@ -24,7 +24,6 @@ import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddClerkComponent } from './add-clerk/add-clerk.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
@@ -35,6 +34,9 @@ import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.compo
 import { RequestStockComponent } from './request-stock/request-stock.component';
 import { PostStockComponent } from './post-stock/post-stock.component';
 import { ProductClerkComponent } from './product-clerk/product-clerk.component';
+import { StocksComponent } from './stocks/stocks.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,6 @@ import { ProductClerkComponent } from './product-clerk/product-clerk.component';
     SalesComponent,
     DashboardComponent,
     AddClerkComponent,
-    LoginComponent,
     LandingpageComponent,
     RegisterComponent,
     SigninComponent,
@@ -60,6 +61,7 @@ import { ProductClerkComponent } from './product-clerk/product-clerk.component';
     RequestStockComponent,
     PostStockComponent,
     ProductClerkComponent,
+    StocksComponent,
   
   ],
   imports: [
@@ -78,6 +80,7 @@ import { ProductClerkComponent } from './product-clerk/product-clerk.component';
     DashboardLayoutModule,
     FormsModule,
     ReactiveFormsModule,
+  
   ],
   providers: [
    
