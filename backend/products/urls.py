@@ -17,7 +17,6 @@ router.register('order_requests', views.OrderRequestViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('', include('rest_framework.urls', namespace='rest_framework')),
-    path('', include('auths.urls')), 
     path( 'get_stock/', view.getStock, name='get_stock'),
     path( 'getstock/', view.getStock, name='get_stock'),
 

@@ -156,11 +156,11 @@ AUTH_USER_MODEL = 'auths.User'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:4200',]
-CORS_ORIGIN_WHITELIST = ('http://localhost:4200',)
-CSRF_TRUSTED_ORIGINS = ['http://localhost:4200',]
+# CORS_ALLOWED_ORIGINS = ['http://localhost:4200',]
+# CORS_ORIGIN_WHITELIST = ('http://localhost:4200',)
+# CSRF_TRUSTED_ORIGINS = ['http://localhost:4200',]
 
-CSRF_COOKIE_DOMAIN = '127.0.0.1'
+# CSRF_COOKIE_DOMAIN = '127.0.0.1'
 # CSRF_TRUSTED_ORIGINS = ['http://localhost:4200']
 
 
