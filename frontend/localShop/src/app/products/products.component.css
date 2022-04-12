@@ -1,13 +1,11 @@
 table {
-  width: 100%;
-  text-align: center;
+  width: 70%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  min-width: 500px;
 }
 
-table {
-  width: 70%;
-}
-
-.mat-form-field {
-  font-size: 14px;
-  width: 70%;
+th.mat-header-cell {
+  text-align: left;
+  max-width: 300px;
 }
