@@ -10,17 +10,17 @@ import { FooterComponent } from './routes/footer/footer.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
 import { ToggleComponent } from './toggle/toggle.component';
-import { AddClerkComponent } from './add-clerk/add-clerk.component';
+import { AddClerkComponent } from './Clerk-user/add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { ClerkComponent } from './clerk/clerk.component';
 import { SigninComponent } from './signin/signin.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
-import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
-import { ProductClerkComponent } from './product-clerk/product-clerk.component';
-import{RequestStockComponent} from './request-stock/request-stock.component';
-import {PostStockComponent} from './post-stock/post-stock.component';
+import { NavClerkComponent } from './Clerk-user/nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './Clerk-user/clerk-dashboard/clerk-dashboard.component';
+import { ProductClerkComponent } from './Clerk-user/product-clerk/product-clerk.component';
+import{RequestStockComponent} from './Clerk-user/request-stock/request-stock.component';
+import {PostStockComponent} from './Clerk-user/post-stock/post-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
 
 

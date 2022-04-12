@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Stock } from '../interface/stock';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 import { StockService } from '../service/stock.service';
+import { Stock} from '../interface/stock'
+
 
 
 @Component({
@@ -9,38 +12,48 @@ import { StockService } from '../service/stock.service';
   templateUrl: './stocks.component.html',
   styleUrls: ['./stocks.component.css']
 })
-export class StocksComponent implements OnInit {
+
+
+export class StocksComponent implements OnInit,AfterViewInit{
   stockList: Object | any;
+  displayedColumns: string[] = ['id', 'product_name',  'quantity', 'created_date','updated_date', 'received_quantity', 'spoilt_quantity','payment'];
+ 
+  public dataSource!: MatTableDataSource<Stock>;
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private stockService :StockService ) { }
+  constructor(private stockService :StockService 
+    ) {
+
+     }
 
  
-  ngOnInit(): void {
-  this.stockService.stocklist().subscribe(data => {
+  ngOnInit() : void {
+    this.stockService.stocklist().subscribe(data => {
     this.stockList = data;
-   });
-      }
+    
+    this.dataSource = new MatTableDataSource(this.stockList);
+     });
+
+  }
   
+   ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    }
+  applyFilter(event: Event) {
+    this.dataSource = new MatTableDataSource(this.stockList);
+
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
 
 
-// constructor(private stockService: StockService) {
-   
-//   // Assign the data to the data source for the table to render
-//   // this.dataSource = new MatTableDataSource(products);
-// }
-// ngAfterViewInit() {
-
-//   this.onGetStocks();
-//   // this.dataSource.paginator = this.paginator;
-//   // this.dataSource.sort = this.sort;
-// }
-
-// onGetStocks(): void {
-//   this.stockService.getStocks().subscribe(
-//     (response) => console.log(response),
-//     (error:any) => console.log(error),
-//     () => console.log('Done getting stocks'),
-//   );
-// }
