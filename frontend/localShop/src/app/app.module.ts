@@ -35,7 +35,7 @@ import { RequestStockComponent } from './request-stock/request-stock.component';
 import { PostStockComponent } from './post-stock/post-stock.component';
 import { ProductClerkComponent } from './product-clerk/product-clerk.component';
 import { StocksComponent } from './stocks/stocks.component';
-
+import {ApiService} from './service/api.service';
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ import { StocksComponent } from './stocks/stocks.component';
   
   ],
   providers: [
-   
+    ApiService,
   ],
   bootstrap: [AppComponent],
   schemas: [

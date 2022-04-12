@@ -10,13 +10,14 @@ import { Stock } from '../interface/stock';
 })
 export class StockService {
 
-  apiurl = 'http://127.0.0.1:8000/api/get_stock/';
+   baseUrl: string = 'http://127.0.0.1:8000/api/';
  
   constructor(private http:HttpClient) {
   }
-
-  getStocks(): Observable<Stock[]>{ 
-
-    return this.http.get<Stock[]>(this.apiurl);
-   }
+  stocklist(){  
+    return this.http.get(this.baseUrl+'stocks/');
+  }
+  productslist(){  
+    return this.http.get(this.baseUrl+'products/');
+  }
 }

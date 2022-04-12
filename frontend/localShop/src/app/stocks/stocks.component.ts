@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Stock } from '../interface/stock';
 import { StockService } from '../service/stock.service';
+
 
 @Component({
   selector: 'app-stocks',
@@ -7,19 +10,18 @@ import { StockService } from '../service/stock.service';
   styleUrls: ['./stocks.component.css']
 })
 export class StocksComponent implements OnInit {
+  stockList: Object | any;
 
-  constructor(private stockService: StockService) { }
 
+  constructor(private stockService :StockService ) { }
+
+ 
   ngOnInit(): void {
-    this.onGetStocks();
-  }
-  onGetStocks(): void {
-      this.stockService.getStocks().subscribe(
-        (response) => console.log(response),
-        (error:any) => console.log(error),
-        () => console.log('Done getting stocks'),
-      );
-    }
+  this.stockService.stocklist().subscribe(data => {
+    this.stockList = data;
+   });
+      }
+  
 }
 
 

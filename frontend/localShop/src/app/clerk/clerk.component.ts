@@ -127,3 +127,4 @@ function createNewproduct(id: number): UserData {
     price: PRICE[id - 1],
   };
 }
+

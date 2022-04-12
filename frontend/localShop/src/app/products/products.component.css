@@ -2,3 +2,12 @@ table {
   width: 100%;
   text-align: center;
 }
+
+table {
+  width: 70%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 70%;
+}
