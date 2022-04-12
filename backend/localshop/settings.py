@@ -134,16 +134,15 @@ STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAdminUser',
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.TokenAuthentication',
+        
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.IsAdminUser',
+#     ),
+# }
 
 
 # Default primary key field type
@@ -152,15 +151,23 @@ REST_FRAMEWORK = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'auths.User'
-ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_UNIQUE_EMAIL = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+# CORS_ALLOWED_ORIGINS = ['http://localhost:4200',]
+# CORS_ORIGIN_WHITELIST = ('http://localhost:4200',)
+# CSRF_TRUSTED_ORIGINS = ['http://localhost:4200',]
+
+# CSRF_COOKIE_DOMAIN = '127.0.0.1'
+# CSRF_TRUSTED_ORIGINS = ['http://localhost:4200']
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dprimesoftware@gmail.com'
-EMAIL_HOST_PASSWORD = 'primesoft11'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-clerk.component.css']
 })
 export class NavClerkComponent implements OnInit {
-
-  constructor() { }
+  authenticated = false;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
   }
-
+  logout(): void {
+    this.http.post('http://localhost:8000/api/logout',{},  {withCredentials: true})
+    .subscribe(()=> this.authenticated = false);
+   }
 }

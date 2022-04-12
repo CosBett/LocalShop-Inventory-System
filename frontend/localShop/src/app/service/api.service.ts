@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+
 
 
 @Injectable({
@@ -8,13 +9,21 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  apiurl = 'http://127.0.0.1:8000/api/login/';
+  apiurl = 'http://127.0.0.1:8000/api/';
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
-    return this.http.post(this.apiurl, { username, password });
-  }
+    return this.http.post(this.apiurl + '/login',{ username, password });
+
 
 }
+
+
+
+
+}
+
+ 
+
 

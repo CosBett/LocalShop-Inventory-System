@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-
+import {ApiService} from '../service/api.service';
 
 @Component({
   selector: 'app-signin',
@@ -20,30 +20,25 @@ export class SigninComponent implements OnInit {
    
   constructor(
     private http: HttpClient,
-    private authService: AuthService,
+    private authService: AuthService,  
     private router: Router
   ) { }
   
 
-  ngOnInit(): void {
+  ngOnInit( ): void {
+
+    this.get_Stocks()
   }
 
-  
-  submit(){
 
-    if(this.form.valid){
-      return;
+  get_Stocks() {
+    this.authService.getStocks()
+    .subscribe((data)=>console.log(data))
+  }
+
+  submit(): void{
+      this.http.post('http://localhost:8000/api/login', this.form.getRawValue(), {
+        withCredentials: true
+      }).subscribe(() => this.router.navigate(['/clerk']));
     }
-    this.authService
-    .login(this.form.value.username, this.form.value.password)
-    .subscribe((response) => {
-      this.responsedata = response;
-      console.log(this.responsedata);
-      if(this.responsedata.status == 200){
-        this.router.navigate(['/clerk']);
-      }
-
-    });
-    
-
-}}
+}
