@@ -4,11 +4,12 @@ from .models import Product, Stock, Store, Order_post, Order_request
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    store_name = serializers.ReadOnlyField(source='store.name')
 
     class Meta:
         model = Product
         fields = ['id', 'name', 'price',
-                  'created_date', 'cost', 'store']
+                  'created_date', 'cost', 'store_name']
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -22,6 +23,7 @@ class StockSerializer(serializers.ModelSerializer):
 
 class OrderPostSerializer(serializers.ModelSerializer):
     product_name = serializers.ReadOnlyField(source='product.name')
+
     class Meta:
         model = Order_post
         fields = ['id', 'product_name', 'quantity',
@@ -38,7 +40,7 @@ class OrderRequestSerializer(serializers.ModelSerializer):
 
 
 class StoreSerializer(serializers.ModelSerializer):
-
+  
     class Meta:
         model = Store
         fields = ['id', 'name', 'admin', 'clerk']

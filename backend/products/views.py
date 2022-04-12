@@ -12,29 +12,18 @@ from rest_framework.decorators import api_view
 
 
 
-@api_view(['GET'])
-def Get_stocks(request):
-    stocks = Stock.objects.all()
-    serializer = StockSerializer(stocks, many=True)
-    return Response(serializer.data)
-
-
-
-
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    permission_classes =(IsAuthenticated,)
-    authentication_classes = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
 
 
-# class StockViewSet(viewsets.ModelViewSet):
-#     queryset = Stock.objects.all()
-#     serializer_class = StockSerializer
+class StockViewSet(viewsets.ModelViewSet):
+    queryset = Stock.objects.all()
+    serializer_class = StockSerializer
 
-#     permission_classes =(IsAuthenticated,)
-#     authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
 
     
  
@@ -42,18 +31,18 @@ class OrderPostViewSet(viewsets.ModelViewSet):
     queryset = Order_post.objects.all()
     serializer_class = OrderPostSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
 
 
 class OrderRequestViewSet(viewsets.ModelViewSet):
     queryset = Order_request.objects.all()
     serializer_class = OrderRequestSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
 
 
 class StoreViewSet(viewsets.ModelViewSet):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
