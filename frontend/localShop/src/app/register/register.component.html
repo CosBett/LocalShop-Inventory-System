@@ -1,0 +1,32 @@
+<div class="container signup">
+  <main class="card shadow-lg form-signup" width="100vw">
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="text-center"> <img class="mb-4" src="../../assets/images/logo.png" alt="" width="60%" height="30%"></div>
+      <h2 class="h3 mb-3 fw-normal">Register here</h2>
+      <div class="form-floating">
+        <input formControlName="username" class="form-control mb-2" type="name" placeholder="Name">
+        <label for="floatingInput">username</label>
+      </div>
+
+      <div class="form-floating">
+        <input formControlName="email" class="form-control mb-2" type="email" placeholder="email">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="password" class="form-control mb-2" type="password" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="form-floating">
+        <input formControlName="password2" class="form-control mb-2" type="password" placeholder="Password">
+        <label for="floatingPassword">Confirm Password</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-outline-primary" type="submit">Create Account</button>
+      <p> Already have an account?
+        <a routerLink="/signin" class="btn text-center rounded-pill"> Sign in Here
+        </a>
+      </p>
+    </form>
+  </main>
+</div>

@@ -1,8 +1,10 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { registerLicense } from '@syncfusion/ej2-base';
+
+registerLicense('ORg4AjUWIQA/Gnt2VVhhQlFaclhJWHxOYVF2R2FJflRxfF9EZUwgOX1dQl9hSXpTcUViWnxdcXdTQ2Q=');
 
 if (environment.production) {
   enableProdMode();

@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+<div class="card-body container shadow-lg" style="margin-top: 4vh;">
+  <h1 class="text-center"> Clerk List</h1>
+  <!-- table 1 -->
+  <div class=" table-responsive ">
+    <table class="table table-bordered " id="datatable " width="100% " cellspacing="0 ">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Age</th>
+          <th>Start Date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John</td>
+          <td>clerk</td>
+          <td>32</td>
+          <td>2011/04/25</td>
+          <td>32,000</td>
+        </tr>
+        <tr>
+          <td>Tony</td>
+          <td>clerk</td>
+          <td>22</td>
+          <td>2014/09/20</td>
+          <td>32,000</td>
+        </tr>
+        <tr>
+          <td>Jane</td>
+          <td>clerk</td>
+          <td>42</td>
+          <td>2010/12/15</td>
+          <td>32,000</td>
+        </tr>
+        <tr>
+          <td>Simon</td>
+          <td>clerk</td>
+          <td>30</td>
+          <td>2016/01/16</td>
+          <td>32,000</td>
+        </tr>
+        <tr>
+          <td>Phoebe</td>
+          <td>clerk</td>
+          <td>52</td>
+          <td>2013/11/28</td>
+          <td>32,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addclerk">
+    Add New Clerk
+  </button>
+</div>
+<script>
+  function addItem() {
+    var li = document.createElement("LI ");
+    var input = document.getElementById("add ");
+    li.innerHTML = input.value;
+    input.value = " ";
+
+    document.getElementById("faves ").appendChild(li);
+  }
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="addclerk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="add product">
+          <h1 class="h3 mb-3 fw-normal text-center">Add New Clerk</h1>
+
+          <div class="form-floating">
+            <input formControlName="username" type="username" class="form-control mb-4" placeholder="username" autocomplete="off">
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+            <label for="floatingPassword">Position </label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="username" type="username" class="form-control mb-4" placeholder="username" autocomplete="off">
+            <label for="floatingInput">Age</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+            <label for="floatingPassword">Start date</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+            <label for="floatingPassword">Salary</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+            <label for="floatingPassword">Email Address</label>
+          </div>
+
+
+          <button class="w-100 btn btn-lg btn-outline-success" type="submit">Submit</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

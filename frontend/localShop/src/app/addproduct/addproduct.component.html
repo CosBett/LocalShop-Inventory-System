@@ -1,0 +1,98 @@
+<app-navbar></app-navbar>
+<div class=" container shadow-lg table-responsive">
+  <h1>Products</h1>
+  <table class=" table ">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Store</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Pencils</td>
+        <td>Stationary</td>
+        <td>50</td>
+        <td>In-Stock</td>
+        <td>3 boxes</td>
+      </tr>
+      <tr>
+        <td>Tissue</td>
+        <td>Sanitary</td>
+        <td>50</td>
+        <td>Out-Of-stock</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>Laptop</td>
+        <td>Technicals</td>
+        <td>100,000</td>
+        <td>In-Stock</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td>Technicals</td>
+        <td>50,000</td>
+        <td>Out-Of-Stock</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+    function addItem() {
+      var li = document.createElement("LI ");
+      var input = document.getElementById("add ");
+      li.innerHTML = input.value;
+      input.value = " ";
+
+      document.getElementById("faves").appendChild(li);
+    }
+  </script>
+  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addproduct">
+  Add New Product
+</button>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="addproduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="add product">
+            <h1 class="h3 mb-3 fw-normal text-center">Add New Product</h1>
+
+            <div class="form-floating">
+              <input formControlName="username" type="username" class="form-control mb-4" placeholder="username" autocomplete="off">
+              <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating">
+              <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+              <label for="floatingPassword">Store</label>
+            </div>
+            <div class="form-floating">
+              <input formControlName="username" type="username" class="form-control mb-4" placeholder="username" autocomplete="off">
+              <label for="floatingInput">Price</label>
+            </div>
+            <div class="form-floating">
+              <input formControlName="password" type="password" class="form-control mb-4" placeholder="Password" autocomplete="off">
+              <label for="floatingPassword">Stock</label>
+            </div>
+
+
+            <button class="w-100 btn btn-lg btn-outline-success" type="submit">Submit</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
