@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Stock } from '../interface/stock';
-import { Product } from '../interface/product';
 import { Orderposts} from '../interface/orderposts';
 
 
@@ -19,9 +18,7 @@ export class StockService {
   stocklist(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.baseUrl + 'stocks/');
   }
-  productslist(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl + 'products/');
-  }
+ 
   postOrders(orders: Orderposts): Observable<Orderposts>{
     return this.http.post<Orderposts>(this.baseUrl + 'order_posts/', orders);
   }

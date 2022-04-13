@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StockService} from '../service/stock.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {Product} from  '../interface/product';
-
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-products',
@@ -15,11 +14,11 @@ export class ProductsComponent implements OnInit {
   dataSource: any;
  
   
-  constructor(private stockService :StockService ) { }
+  constructor(private productService :ProductService ) { }
   
  
   ngOnInit(): void {
-    this.stockService.productslist().subscribe(x => {
+    this.productService.productslist().subscribe(x => {
     this.data = x;
     console.log(this.data);
     });
