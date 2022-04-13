@@ -15,25 +15,24 @@ import { RoutesComponent } from './routes/routes.component';
 import { ChartsComponent } from './routes/charts/charts.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { FooterComponent } from './routes/footer/footer.component';
-import { NavbarComponent } from './navbar-sidebar/navbar.component';
+import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddproductComponent } from './Admin-Dashboard/addproduct/addproduct.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SalesComponent } from './sales/sales.component';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddClerkComponent } from './Clerk-user/add-clerk/add-clerk.component';
+import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
+import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavClerkComponent } from './Clerk-user/nav-clerk/nav-clerk.component';
-import { ClerkComponent } from './clerk/clerk.component';
-import { ClerkDashboardComponent } from './Clerk-user/clerk-dashboard/clerk-dashboard.component';
-import { RequestStockComponent } from './Clerk-user/request-stock/request-stock.component';
-import { PostStockComponent } from './Clerk-user/post-stock/post-stock.component';
-import { ProductClerkComponent } from './Clerk-user/product-clerk/product-clerk.component';
+import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
+import { RequestStockComponent } from './Clerk-Dashboard/request-stock/request-stock.component';
+import { PostStockComponent } from './Clerk-Dashboard/post-stock/post-stock.component';
+import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
 import { StocksComponent } from './stocks/stocks.component';
 import {ApiService} from './service/api.service';
 
@@ -55,7 +54,6 @@ import {ApiService} from './service/api.service';
     LandingpageComponent,
     RegisterComponent,
     SigninComponent,
-    ClerkComponent,
     NavClerkComponent,
     ClerkDashboardComponent,
     RequestStockComponent,

@@ -1,8 +1,8 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddproductComponent } from './addproduct/addproduct.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavbarComponent } from './navbar-sidebar/navbar.component';
+import { AddproductComponent } from './Admin-Dashboard/addproduct/addproduct.component';
+import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
+import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { ChartsComponent } from './routes/charts/charts.component';
@@ -10,17 +10,15 @@ import { FooterComponent } from './routes/footer/footer.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
 import { ToggleComponent } from './toggle/toggle.component';
-import { AddClerkComponent } from './Clerk-user/add-clerk/add-clerk.component';
+import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
-import { ClerkComponent } from './clerk/clerk.component';
 import { SigninComponent } from './signin/signin.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavClerkComponent } from './Clerk-user/nav-clerk/nav-clerk.component';
-import { ClerkDashboardComponent } from './Clerk-user/clerk-dashboard/clerk-dashboard.component';
-import { ProductClerkComponent } from './Clerk-user/product-clerk/product-clerk.component';
-import{RequestStockComponent} from './Clerk-user/request-stock/request-stock.component';
-import {PostStockComponent} from './Clerk-user/post-stock/post-stock.component';
+import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
+import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
+import{RequestStockComponent} from './Clerk-Dashboard/request-stock/request-stock.component';
+import {PostStockComponent} from './Clerk-Dashboard/post-stock/post-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
 
 
@@ -39,7 +37,6 @@ const routes: Routes = [
   { path: 'admin', component: DashboardComponent },
   { path: '', component: LandingpageComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'table-stock', component: ClerkComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'nav-clerk', component: NavClerkComponent },
   {path:'clerk', component: ClerkDashboardComponent},

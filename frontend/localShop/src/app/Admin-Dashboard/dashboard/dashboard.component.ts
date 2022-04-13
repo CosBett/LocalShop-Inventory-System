@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{StockService} from '../service/stock.service';
+import{StockService} from '../../service/stock.service';
 
 
 @Component({
