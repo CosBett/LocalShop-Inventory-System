@@ -18,14 +18,18 @@ export class StockService {
   stocklist(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.baseUrl + 'stocks/');
   }
- 
-  postOrders(orders: Orderposts): Observable<Orderposts>{
-    return this.http.post<Orderposts>(this.baseUrl + 'order_posts/', orders);
-  }
-  postStocks(stock: Stock): Observable<Stock>{
+ createStock(stock: Stock): Observable<Stock>{
     return this.http.post<Stock>(this.baseUrl + 'stocks/', stock);
-  }
+ }
  updateStock(stock: Stock): Observable<Stock>{
   return this.http.put<Stock>(this.baseUrl + 'stocks/' + stock.id, stock);
  }
+ deleteStock(id: string): Observable<Stock>{
+  return this.http.delete<Stock>(this.baseUrl + 'stocks/' + id);
+ }
+  postOrders(orders: Orderposts): Observable<Orderposts>{
+    return this.http.post<Orderposts>(this.baseUrl + 'order_posts/', orders);
+  }
+  
+ 
 }
