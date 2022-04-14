@@ -1,10 +1,5 @@
-<!-- <p>Stock List </p>
-<ul>
-  <li *ngFor=" let stock of stockList">{{stock.product_name}}</li>
-</ul> -->
-<div class="container">
-  <h1 class="text-center">Stock Records Details</h1>
-
+<div class="container card shadow-lg  ">
+  <h1 class="text-center ">Stock Records Details</h1>
   <div class="container stock_table">
     <mat-form-field appearance="standard">
       <mat-label class="filter shadow-lg">Filter</mat-label>
@@ -65,6 +60,5 @@
         </tr>
       </table>
       <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"> </mat-paginator>
-
     </div>
   </div>

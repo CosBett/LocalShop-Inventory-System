@@ -14,7 +14,7 @@ import { Stock} from '../interface/stock'
 })
 
 
-export class StocksComponent implements OnInit,AfterViewInit{
+export class StocksComponent implements AfterViewInit, OnInit{
   stockList: Object | any;
   displayedColumns: string[] = ['id', 'product_name',  'quantity', 'created_date','updated_date', 'received_quantity', 'spoilt_quantity','payment'];
  
@@ -46,7 +46,6 @@ export class StocksComponent implements OnInit,AfterViewInit{
     }
   applyFilter(event: Event) {
     this.dataSource = new MatTableDataSource(this.stockList);
-
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 

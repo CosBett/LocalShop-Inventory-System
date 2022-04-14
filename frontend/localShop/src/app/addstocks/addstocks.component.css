@@ -1,8 +1,5 @@
 .signin {
-  margin-top: 3%;
-  display: flex;
-  align-items: center;
-  width: 40%;
+  /* margin-top: 3%; */
 }
 
 .form-signin {
@@ -25,6 +22,7 @@
 }
 
 .form-signin input[type="password"] {
+  margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

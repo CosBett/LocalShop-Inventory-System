@@ -23,7 +23,7 @@ import { SalesComponent } from './sales/sales.component';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
 import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
 import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
@@ -31,10 +31,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
 import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
 import { RequestStockComponent } from './Clerk-Dashboard/request-stock/request-stock.component';
-import { PostStockComponent } from './Clerk-Dashboard/post-stock/post-stock.component';
 import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
 import { StocksComponent } from './stocks/stocks.component';
 import {ApiService} from './service/api.service';
+import { AddstocksComponent } from './addstocks/addstocks.component';
 
 @NgModule({
   declarations: [
@@ -57,9 +57,9 @@ import {ApiService} from './service/api.service';
     NavClerkComponent,
     ClerkDashboardComponent,
     RequestStockComponent,
-    PostStockComponent,
     ProductClerkComponent,
     StocksComponent,
+    AddstocksComponent,
   
   ],
   imports: [
@@ -76,9 +76,8 @@ import {ApiService} from './service/api.service';
     MatSidenavModule,
     BrowserModule,
     DashboardLayoutModule,
-    FormsModule,
     ReactiveFormsModule,
-  
+    FormsModule,
   ],
   providers: [
     ApiService,

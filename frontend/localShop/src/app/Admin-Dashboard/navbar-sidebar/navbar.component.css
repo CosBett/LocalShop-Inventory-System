@@ -10,6 +10,12 @@
   height: 12%
 }
 
+.navbar-toggler {
+  height: 100%;
+  display: flex;
+  align-self: center;
+}
+
 .offcanvas-header {
   display: flex;
   justify-content: space-around;

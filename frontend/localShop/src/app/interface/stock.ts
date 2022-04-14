@@ -5,6 +5,6 @@ export interface Stock {
     created_date: string;
     updated_date: string;
     received_quantity: number;
-    payment: string;
+    payment: ['paid', 'unpaid'];
     spoilt_quantity: number;
 }

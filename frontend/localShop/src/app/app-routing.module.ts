@@ -18,9 +18,8 @@ import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.compone
 import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
 import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
 import{RequestStockComponent} from './Clerk-Dashboard/request-stock/request-stock.component';
-import {PostStockComponent} from './Clerk-Dashboard/post-stock/post-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
-
+import { AddstocksComponent } from './addstocks/addstocks.component';
 
 
 const routes: Routes = [
@@ -42,9 +41,8 @@ const routes: Routes = [
   {path:'clerk', component: ClerkDashboardComponent},
   {path:'product',component:ProductClerkComponent},
   {path:'stock_requests', component:RequestStockComponent},
-  {path:'post_stock', component:PostStockComponent},
-  {path:'stocks', component:StocksComponent}
-
+  {path:'stocks', component:StocksComponent},
+  {path:'add_stock', component:AddstocksComponent}  
 ];
 
 @NgModule({

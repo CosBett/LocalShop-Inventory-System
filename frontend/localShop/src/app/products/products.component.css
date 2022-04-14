@@ -2,12 +2,11 @@ table {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  min-width: 500px;
 }
 
 th.mat-header-cell {
   text-align: left;
-  max-width: 300px;
+  /* max-width: 300px; */
 }
 
 .mat-form-field {
@@ -16,7 +15,7 @@ th.mat-header-cell {
 }
 
 .stock_table {
-  width: 75%;
+  width: 100%;
 }
 
 td,
