@@ -6,20 +6,20 @@ import { OrderRequest } from '../interface/order-request';
   providedIn: 'root'
 })
 export class OrderrequestService {
-  baseUrl: string = 'https://localshopinv.herokuapp.com/api/';
+  baseUrl: string = 'https://localshopinv.herokuapp.com/api/order_requests';
   constructor(private http: HttpClient) { 
     
   }
   orderrequestlist(): Observable<OrderRequest[]> {
-    return this.http.get<OrderRequest[]>(this.baseUrl + 'orderrequests/');
+    return this.http.get<OrderRequest[]>(this.baseUrl);
   }
   createOrderRequest(orderRequest: OrderRequest): Observable<OrderRequest> {
-    return this.http.post<OrderRequest>(this.baseUrl + 'orderrequests/', orderRequest);
+    return this.http.post<OrderRequest>(this.baseUrl , orderRequest);
   }
   updateOrderRequest(orderRequest: OrderRequest): Observable<OrderRequest> {
-    return this.http.put<OrderRequest>(this.baseUrl + 'orderrequests/' + orderRequest.id, orderRequest);
+    return this.http.put<OrderRequest>(this.baseUrl  + orderRequest.id, orderRequest);
   }
   deleteOrderRequest(orderRequest: OrderRequest): Observable<OrderRequest> {
-    return this.http.delete<OrderRequest>(this.baseUrl + 'orderrequests/' + orderRequest.id);
+    return this.http.delete<OrderRequest>(this.baseUrl + orderRequest.id);
   }
 }

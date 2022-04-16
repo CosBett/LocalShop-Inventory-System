@@ -1,24 +1,32 @@
 <app-nav-clerk></app-nav-clerk>
-<div class="container signin">
-  <main class="card shadow-lg form-signin" width="100vw">
+<div class="row p-3">
+  <div class="col-md-4">
+    <div class="container sRequest">
 
-    <form>
-      <h1 class="h3 mb-3 fw-normal text-center">Restocking Request</h1>
-      <div class="form-floating">
-        <input formControlName="username" class="form-control mb-4" placeholder="Name">
-        <label for="floatingInput">Product</label>
-      </div>
+      <main class="card shadow-lg form-sRequest" width="100vw">
 
-      <div class="form-floating">
-        <input formControlName="password" class="form-control mb-4" placeholder="Password">
-        <label for="floatingPassword">Quantity</label>
-      </div>
-      <div class="form-floating">
-        <input formControlName="password2" class="form-control mb-4" placeholder="Password">
-        <label for="floatingPassword">Current Stock</label>
-      </div>
-      <button class="w-100 btn btn-lg btn-outline-success" type="submit">Send Request</button>
+        <form>
+          <h1 class="h3 mb-3 fw-normal text-center">Restocking Request</h1>
+          <div class="form-floating">
+            <input formControlName="username" class="form-control mb-4" placeholder="Name">
+            <label for="floatingInput">Product</label>
+          </div>
 
-    </form>
-  </main>
+          <div class="form-floating">
+            <input formControlName="Quantity" class="form-control mb-4" placeholder="Quantity">
+            <label for="floatingPassword">Quantity</label>
+          </div>
+          <div class="form-floating">
+            <input formControlName="curre" class="form-control mb-4" placeholder="Quantity">
+            <label for="floatingPassword">Current Stock</label>
+          </div>
+          <button class="w-100 btn btn-lg btn-outline-success" type="submit">Send Request</button>
+
+        </form>
+      </main>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <app-requesttable></app-requesttable>
+  </div>
 </div>

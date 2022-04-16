@@ -10,10 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ToggleComponent } from './toggle/toggle.component';
 import { RoutesComponent } from './routes/routes.component';
 import { ChartsComponent } from './routes/charts/charts.component';
-import { TablesComponent } from './routes/tables/tables.component';
 import { FooterComponent } from './routes/footer/footer.component';
 import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
@@ -35,14 +33,14 @@ import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-c
 import { StocksComponent } from './stocks/stocks.component';
 import {ApiService} from './service/api.service';
 import { AddstocksComponent } from './addstocks/addstocks.component';
+import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
+import { RequesttableComponent } from './tables/requesttable/requesttable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToggleComponent,
     RoutesComponent,
     ChartsComponent,
-    TablesComponent,
     FooterComponent,
     NavbarComponent,
     ProductsComponent,
@@ -60,6 +58,8 @@ import { AddstocksComponent } from './addstocks/addstocks.component';
     ProductClerkComponent,
     StocksComponent,
     AddstocksComponent,
+    ProductAdminComponent,
+    RequesttableComponent,
   
   ],
   imports: [

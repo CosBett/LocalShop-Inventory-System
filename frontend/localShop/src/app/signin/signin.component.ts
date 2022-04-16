@@ -37,8 +37,8 @@ export class SigninComponent implements OnInit {
   }
 
   submit(): void{
-      this.http.post('http://localhost:8000/api/login', this.form.getRawValue(), {
+      this.http.post('https://localshopinv.herokuapp.com/api/login', this.form.getRawValue(), {
         withCredentials: true
-      }).subscribe(() => this.router.navigate(['/clerk']));
+      }).subscribe(() => this.router.navigate(['/admin']));
     }
 }

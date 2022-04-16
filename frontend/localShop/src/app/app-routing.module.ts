@@ -7,9 +7,7 @@ import { ProductsComponent } from './products/products.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { ChartsComponent } from './routes/charts/charts.component';
 import { FooterComponent } from './routes/footer/footer.component';
-import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
-import { ToggleComponent } from './toggle/toggle.component';
 import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,11 +18,10 @@ import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-c
 import{RequestStockComponent} from './Clerk-Dashboard/request-stock/request-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { AddstocksComponent } from './addstocks/addstocks.component';
+import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
 
 
 const routes: Routes = [
-  { path: 'static', component: ToggleComponent, pathMatch: 'full' },
-  { path: 'tables', component: TablesComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'charts', component: ChartsComponent },
@@ -42,7 +39,8 @@ const routes: Routes = [
   {path:'product',component:ProductClerkComponent},
   {path:'stock_requests', component:RequestStockComponent},
   {path:'stocks', component:StocksComponent},
-  {path:'add_stock', component:AddstocksComponent}  
+  {path:'add_stock', component:AddstocksComponent} ,
+  {path:'products_admin', component:ProductAdminComponent} 
 ];
 
 @NgModule({

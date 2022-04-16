@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   submit() {
-    this.http.post('http://localhost:8000/api/register/admin/', this.form.getRawValue())
+    this.http.post('https://localshopinv.herokuapp.com/api/register/admin/', this.form.getRawValue())
     .subscribe(
       next => {
         this.router.navigate(['/signin']);

@@ -3,7 +3,7 @@
 
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Product, Store, Price, Cost" #input>
   </mat-form-field>
 
   <table mat-table [dataSource]="data" class="mat-elevation-z8">

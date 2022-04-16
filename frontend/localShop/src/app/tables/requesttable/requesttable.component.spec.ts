@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToggleComponent } from './toggle.component';
+import { RequesttableComponent } from './requesttable.component';
 
-describe('ToggleComponent', () => {
-  let component: ToggleComponent;
-  let fixture: ComponentFixture<ToggleComponent>;
+describe('RequesttableComponent', () => {
+  let component: RequesttableComponent;
+  let fixture: ComponentFixture<RequesttableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToggleComponent ]
+      declarations: [ RequesttableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ToggleComponent);
+    fixture = TestBed.createComponent(RequesttableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
