@@ -35,6 +35,7 @@ import {ApiService} from './service/api.service';
 import { AddstocksComponent } from './addstocks/addstocks.component';
 import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
 import { RequesttableComponent } from './tables/requesttable/requesttable.component';
+import { StockrequestComponent } from './Admin-Dashboard/stockrequest/stockrequest.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { RequesttableComponent } from './tables/requesttable/requesttable.compon
     AddstocksComponent,
     ProductAdminComponent,
     RequesttableComponent,
+    StockrequestComponent,
   
   ],
   imports: [
