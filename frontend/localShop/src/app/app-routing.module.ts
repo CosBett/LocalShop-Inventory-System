@@ -5,7 +5,6 @@ import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.compon
 import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { PurchaseComponent } from './purchase/purchase.component';
-import { ChartsComponent } from './routes/charts/charts.component';
 import { FooterComponent } from './routes/footer/footer.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
@@ -19,7 +18,15 @@ import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk
 import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
 import{RequestStockComponent} from './Clerk-Dashboard/request-stock/request-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
-import { AddstocksComponent } from './addstocks/addstocks.component';
+import { SuperuserComponent } from './superuser/superuser.component';
+import { AddadminComponent } from './superuser/addadmin/addadmin.component';
+import { StockStatusComponent } from './superuser/stock-status/stock-status.component';
+import { SidenavComponent } from './superuser/sidenav/sidenav.component';
+import { BarChartComponent } from './routes/bar-chart/bar-chart.component';
+import { PieChartComponent } from './routes/pie-chart/pie-chart.component';
+import { SuptablesComponent } from './superuser/suptables/suptables.component';
+import { ProductListComponent } from './superuser/product-list/product-list.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +34,6 @@ const routes: Routes = [
   { path: 'tables', component: TablesComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'charts', component: ChartsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'addclerk', component: AddClerkComponent },
   { path: 'addproduct', component: AddproductComponent },
@@ -42,7 +48,16 @@ const routes: Routes = [
   {path:'product',component:ProductClerkComponent},
   {path:'stock_requests', component:RequestStockComponent},
   {path:'stocks', component:StocksComponent},
-  {path:'add_stock', component:AddstocksComponent}  
+  {path:'superuser', component:SuperuserComponent},
+  {path:'addadmin', component:AddadminComponent},
+  {path:'suptables',component:SuptablesComponent},
+  {path:'stockstatus', component:StockStatusComponent},
+  {path:'sidenav', component:SidenavComponent},
+  {path:'barchart', component:BarChartComponent},
+  {path:'piechart', component:PieChartComponent},
+  {path:'sales', component:SalesComponent},
+  {path:'productlist', component:ProductListComponent},
+
 ];
 
 @NgModule({

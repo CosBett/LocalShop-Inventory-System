@@ -5,8 +5,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import { StockService } from '../service/stock.service';
 import { Stock} from '../interface/stock'
 
-
-
 @Component({
   selector: 'app-stocks',
   templateUrl: './stocks.component.html',
@@ -30,15 +28,14 @@ export class StocksComponent implements AfterViewInit, OnInit{
 
      }
 
- 
-  ngOnInit() : void {
-    this.stockService.stocklist().subscribe(data => {
-    this.stockList = data;
-    
-    this.dataSource = new MatTableDataSource(this.stockList);
-     });
-
-  }
+     ngOnInit() : void {
+      this.stockService.stocklist().subscribe(data => {
+      this.stockList = data;
+      
+      this.dataSource = new MatTableDataSource(this.stockList);
+       });
+  
+    }
   
    ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -53,6 +50,7 @@ export class StocksComponent implements AfterViewInit, OnInit{
       this.dataSource.paginator.firstPage();
     }
   }
+
 }
 
 

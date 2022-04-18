@@ -1,0 +1,8 @@
+.bar{
+  position: relative;
+  height: 50%;
+}
+.line{
+  /* display: flex; */
+  height: 400px;
+}
