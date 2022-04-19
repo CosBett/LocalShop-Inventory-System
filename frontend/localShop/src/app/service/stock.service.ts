@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Stock } from '../interface/stock';
-
 
 
 @Injectable({
@@ -10,13 +9,21 @@ import { Stock } from '../interface/stock';
 })
 export class StockService {
 
-  apiurl = 'http://127.0.0.1:8000/api/get_stock/';
- 
-  constructor(private http:HttpClient) {
+  baseUrl: string = 'https://localshopinv.herokuapp.com/api/';
+
+  constructor(private http: HttpClient) {
   }
-
-  getStocks(): Observable<Stock[]>{ 
-
-    return this.http.get<Stock[]>(this.apiurl);
-   }
+  stocklist(): Observable<Stock[]> {
+    return this.http.get<Stock[]>(this.baseUrl + 'stocks/');
+  }
+  createStock(stock: Stock): Observable<Stock>{
+    return this.http.post<Stock>(this.baseUrl + 'stocks/', stock);
+  }
+  updateStock(stock: Stock): Observable<Stock>{
+    return this.http.put<Stock>(this.baseUrl + 'stocks/' + stock.id, stock);
+  }
+  deleteStock(id: string): Observable<Stock>{
+    return this.http.delete<Stock>(this.baseUrl + 'stocks/' + id);
+  }
+ 
 }

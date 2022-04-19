@@ -12,29 +12,38 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { ToggleComponent } from './toggle/toggle.component';
 import { RoutesComponent } from './routes/routes.component';
-import { ChartsComponent } from './routes/charts/charts.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { FooterComponent } from './routes/footer/footer.component';
-import { NavbarComponent } from './navbar-sidebar/navbar.component';
+import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddproductComponent } from './Admin-Dashboard/addproduct/addproduct.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { SalesComponent } from './sales/sales.component';
 import { DashboardLayoutModule } from '@syncfusion/ej2-angular-layouts';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddClerkComponent } from './add-clerk/add-clerk.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
+import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
+import { FormsModule,NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
-import { ClerkComponent } from './clerk/clerk.component';
-import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
-import { RequestStockComponent } from './request-stock/request-stock.component';
-import { PostStockComponent } from './post-stock/post-stock.component';
-import { ProductClerkComponent } from './product-clerk/product-clerk.component';
+import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
+import { RequestStockComponent } from './Clerk-Dashboard/request-stock/request-stock.component';
+import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
 import { StocksComponent } from './stocks/stocks.component';
+import { NgApexchartsModule } from "ng-apexcharts";
+import { SuperuserComponent } from './superuser/superuser.component';
+import { SuptablesComponent } from './superuser/suptables/suptables.component';
+import { AddadminComponent } from './superuser/addadmin/addadmin.component';
+import { StockStatusComponent } from './superuser/stock-status/stock-status.component';
+import { SidenavComponent } from './superuser/sidenav/sidenav.component';
+import { BarChartComponent } from './routes/bar-chart/bar-chart.component';
+import { PieChartComponent } from './routes/pie-chart/pie-chart.component';
+import { PurchasesComponent } from './superuser/purchases/purchases.component';
+import { ProductListComponent } from './superuser/product-list/product-list.component';
+import { ChartsModule } from "@carbon/charts-angular";
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 
 @NgModule({
@@ -42,7 +51,6 @@ import { StocksComponent } from './stocks/stocks.component';
     AppComponent,
     ToggleComponent,
     RoutesComponent,
-    ChartsComponent,
     TablesComponent,
     FooterComponent,
     NavbarComponent,
@@ -55,13 +63,20 @@ import { StocksComponent } from './stocks/stocks.component';
     LandingpageComponent,
     RegisterComponent,
     SigninComponent,
-    ClerkComponent,
     NavClerkComponent,
     ClerkDashboardComponent,
     RequestStockComponent,
-    PostStockComponent,
     ProductClerkComponent,
     StocksComponent,
+    SuperuserComponent,
+    SuptablesComponent,
+    AddadminComponent,
+    StockStatusComponent,
+    SidenavComponent,
+    BarChartComponent,
+    PieChartComponent,
+    PurchasesComponent,
+    ProductListComponent
   
   ],
   imports: [
@@ -78,12 +93,14 @@ import { StocksComponent } from './stocks/stocks.component';
     MatSidenavModule,
     BrowserModule,
     DashboardLayoutModule,
-    FormsModule,
     ReactiveFormsModule,
-  
+    NgApexchartsModule,
+    ChartsModule,
+    Ng2GoogleChartsModule
+    
   ],
   providers: [
-   
+  
   ],
   bootstrap: [AppComponent],
   schemas: [
@@ -91,3 +108,7 @@ import { StocksComponent } from './stocks/stocks.component';
  
 })
 export class AppModule { }
+function routes(routes: any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+  throw new Error('Function not implemented.');
+}
+

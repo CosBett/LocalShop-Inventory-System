@@ -13,8 +13,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string) {
-    return this.http.post(this.apiurl + '/login',{ username, password });
+  get_stocks(): Observable<any>{
+    return this.http.get(this.apiurl + 'stocks/');
 
 
 }

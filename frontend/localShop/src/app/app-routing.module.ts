@@ -1,27 +1,31 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddproductComponent } from './addproduct/addproduct.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavbarComponent } from './navbar-sidebar/navbar.component';
+import { AddproductComponent } from './Admin-Dashboard/addproduct/addproduct.component';
+import { DashboardComponent } from './Admin-Dashboard/dashboard/dashboard.component';
+import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
 import { PurchaseComponent } from './purchase/purchase.component';
-import { ChartsComponent } from './routes/charts/charts.component';
 import { FooterComponent } from './routes/footer/footer.component';
 import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
 import { ToggleComponent } from './toggle/toggle.component';
-import { AddClerkComponent } from './add-clerk/add-clerk.component';
+import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
-import { ClerkComponent } from './clerk/clerk.component';
 import { SigninComponent } from './signin/signin.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { NavClerkComponent } from './nav-clerk/nav-clerk.component';
-import { ClerkDashboardComponent } from './clerk-dashboard/clerk-dashboard.component';
-import { ProductClerkComponent } from './product-clerk/product-clerk.component';
-import{RequestStockComponent} from './request-stock/request-stock.component';
-import {PostStockComponent} from './post-stock/post-stock.component';
+import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
+import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
+import { ProductClerkComponent } from './Clerk-Dashboard/product-clerk/product-clerk.component';
+import{RequestStockComponent} from './Clerk-Dashboard/request-stock/request-stock.component';
 import { StocksComponent } from './stocks/stocks.component';
+import { SuperuserComponent } from './superuser/superuser.component';
+import { AddadminComponent } from './superuser/addadmin/addadmin.component';
+import { StockStatusComponent } from './superuser/stock-status/stock-status.component';
+import { SidenavComponent } from './superuser/sidenav/sidenav.component';
+import { BarChartComponent } from './routes/bar-chart/bar-chart.component';
+import { PieChartComponent } from './routes/pie-chart/pie-chart.component';
+import { SuptablesComponent } from './superuser/suptables/suptables.component';
+import { ProductListComponent } from './superuser/product-list/product-list.component';
 
 
 
@@ -30,7 +34,6 @@ const routes: Routes = [
   { path: 'tables', component: TablesComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
-  { path: 'charts', component: ChartsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'addclerk', component: AddClerkComponent },
   { path: 'addproduct', component: AddproductComponent },
@@ -39,14 +42,21 @@ const routes: Routes = [
   { path: 'admin', component: DashboardComponent },
   { path: '', component: LandingpageComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'table-stock', component: ClerkComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'nav-clerk', component: NavClerkComponent },
   {path:'clerk', component: ClerkDashboardComponent},
   {path:'product',component:ProductClerkComponent},
   {path:'stock_requests', component:RequestStockComponent},
-  {path:'post_stock', component:PostStockComponent},
-  {path:'stocks', component:StocksComponent}
+  {path:'stocks', component:StocksComponent},
+  {path:'superuser', component:SuperuserComponent},
+  {path:'addadmin', component:AddadminComponent},
+  {path:'suptables',component:SuptablesComponent},
+  {path:'stockstatus', component:StockStatusComponent},
+  {path:'sidenav', component:SidenavComponent},
+  {path:'barchart', component:BarChartComponent},
+  {path:'piechart', component:PieChartComponent},
+  {path:'sales', component:SalesComponent},
+  {path:'productlist', component:ProductListComponent},
 
 ];
 
