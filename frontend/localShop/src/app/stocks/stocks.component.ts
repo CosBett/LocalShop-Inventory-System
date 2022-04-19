@@ -16,7 +16,7 @@ export class StocksComponent implements AfterViewInit, OnInit{
   stockList: Object | any;
   displayedColumns: string[] = ['id', 'product_name',  'quantity', 'created_date','updated_date', 'received_quantity', 'spoilt_quantity','payment'];
  
-  public dataSource!: MatTableDataSource<Stock>;
+  dataSource!: MatTableDataSource<Stock>;
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -25,21 +25,25 @@ export class StocksComponent implements AfterViewInit, OnInit{
 
   constructor(private stockService :StockService 
     ) {
-
      }
 
-     ngOnInit() : void {
-      this.stockService.stocklist().subscribe(data => {
-      this.stockList = data;
-      
-      this.dataSource = new MatTableDataSource(this.stockList);
-       });
-  
-    }
-  
-   ngAfterViewInit(): void {
+ 
+  ngOnInit() : void {
+    this.stockService.stocklist().subscribe(data => {
+    this.stockList = data;
+
+    this.dataSource = new MatTableDataSource(this.stockList);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+
+     });
+
+  }
+  
+   ngAfterViewInit(): void {
+   
+
     }
   applyFilter(event: Event) {
     this.dataSource = new MatTableDataSource(this.stockList);

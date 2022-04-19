@@ -10,9 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ToggleComponent } from './toggle/toggle.component';
 import { RoutesComponent } from './routes/routes.component';
-import { TablesComponent } from './routes/tables/tables.component';
 import { FooterComponent } from './routes/footer/footer.component';
 import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.component';
 import { ProductsComponent } from './products/products.component';
@@ -26,7 +24,7 @@ import { FormsModule,NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule} from '@angular/material/paginator';
 import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
 import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
 import { RequestStockComponent } from './Clerk-Dashboard/request-stock/request-stock.component';
@@ -44,14 +42,16 @@ import { PurchasesComponent } from './superuser/purchases/purchases.component';
 import { ProductListComponent } from './superuser/product-list/product-list.component';
 import { ChartsModule } from "@carbon/charts-angular";
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
-
+import { AddstocksComponent } from './addstocks/addstocks.component';
+import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
+import { RequesttableComponent } from './tables/requesttable/requesttable.component';
+import { StockrequestComponent } from './Admin-Dashboard/stockrequest/stockrequest.component';
+import { ClerktableComponent } from './tables/clerktable/clerktable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToggleComponent,
     RoutesComponent,
-    TablesComponent,
     FooterComponent,
     NavbarComponent,
     ProductsComponent,
@@ -76,7 +76,12 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     BarChartComponent,
     PieChartComponent,
     PurchasesComponent,
-    ProductListComponent
+    ProductListComponent,
+    AddstocksComponent,
+    ProductAdminComponent,
+    RequesttableComponent,
+    StockrequestComponent,
+    ClerktableComponent,
   
   ],
   imports: [
@@ -96,7 +101,8 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
     ReactiveFormsModule,
     NgApexchartsModule,
     ChartsModule,
-    Ng2GoogleChartsModule
+    Ng2GoogleChartsModule,
+    FormsModule,
     
   ],
   providers: [

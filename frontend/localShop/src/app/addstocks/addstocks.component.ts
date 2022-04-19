@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm,FormsModule} from '@angular/forms';
 import { StockService } from '../service/stock.service';
+import {ProductService} from '../service/product.service';
 import { Stock } from '../interface/stock';
 
 
@@ -19,12 +20,16 @@ export class AddstocksComponent implements OnInit {
     spoilt_quantity: number= 0;
     received_quantity: number= 0;
  
-  
-    constructor(private stockService: StockService) { 
+ products:any
+
+    constructor(
+      private stockService: StockService,
+      private productService: ProductService) { 
 
     }
 
     ngOnInit(): void {
+      this.displayProducts();
     }
     loadValues(formValue:NgForm){
       let stockDetails ={
@@ -39,17 +44,14 @@ export class AddstocksComponent implements OnInit {
 
     addStock(formValue: NgForm) {
       let stock= {
-        product_name: formValue.value.product_name,
-        quantity: formValue.value.quantity,
-        payment: formValue.value.payment,
-        received_quantity: formValue.value.received_quantity,
-        spoilt_quantity: formValue.value.spoilt_quantity,
-        id: 0,
-        created_date: '',
-        updated_date: '',
-       
+        'product': formValue.value.product_name,
+        'quantity': formValue.value.quantity,
+        'received_quantity': formValue.value.received_quantity,
+        'payment' :formValue.value.payment,
+        'spoilt_quantity' :formValue.value.spoilt_quantity
+          
       }
-      this.stockService.createStock(stock).subscribe(data => {
+      this.stockService.add_stock(stock).subscribe(data => {
         console.log(data);
     
         }, (err) => {
@@ -61,4 +63,10 @@ export class AddstocksComponent implements OnInit {
       resetForm(formValue: NgForm) {
         formValue.reset();
       }
+      displayProducts(){
+        this.productService.productslist().subscribe((data) => {
+          this.products = data;
+          console.log(this.products);
+        });
+}
 }

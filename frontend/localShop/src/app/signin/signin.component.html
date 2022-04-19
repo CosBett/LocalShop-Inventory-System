@@ -2,7 +2,7 @@
   <main class="card shadow-lg form-signin" width="100vw">
 
     <form [formGroup]="form" (ngSubmit)="submit()">
-
+      <div class="text danger">{{error}}</div>
       <div class="text-center"> <img class="mb-4" src="../../assets/images/logo.png" alt="" width="60%" height="30%"></div>
       <h2 class="h3 mb-3 fw-normal">Please sign in</h2>
 

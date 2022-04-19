@@ -7,11 +7,10 @@ import { tap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-url= 'http://127.0.0.1:8000/api/login/'
-stocks_url ='http://127.0.0.1:8000/api/order_posts/'
+url= 'https://localshopinv.herokuapp.com/api/login/'
+stocks_url ='https://localshopinv.herokuapp.com/api/order_posts/'
   constructor(
     private http: HttpClient,
-    // private apiService: ApiService,
     ) {
   }
  login(creds:any): Observable<any> {
@@ -24,13 +23,4 @@ stocks_url ='http://127.0.0.1:8000/api/order_posts/'
   }
 
   }
-  // login(username: string, password: string) {
-  //   return this.apiService.login(username, password).pipe(
-  //     tap((response: any) => {
-  //     console.log(response.token)
-  //     })
-  //   );
-    
-  //   // return this.http.post(this.apiurl, usercred);
-  
-
+ 

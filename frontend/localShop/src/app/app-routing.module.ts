@@ -6,9 +6,7 @@ import { NavbarComponent } from './Admin-Dashboard/navbar-sidebar/navbar.compone
 import { ProductsComponent } from './products/products.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { FooterComponent } from './routes/footer/footer.component';
-import { TablesComponent } from './routes/tables/tables.component';
 import { SalesComponent } from './sales/sales.component';
-import { ToggleComponent } from './toggle/toggle.component';
 import { AddClerkComponent } from './Admin-Dashboard/add-clerk/add-clerk.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
@@ -28,10 +26,12 @@ import { SuptablesComponent } from './superuser/suptables/suptables.component';
 import { ProductListComponent } from './superuser/product-list/product-list.component';
 
 
+import { AddstocksComponent } from './addstocks/addstocks.component';
+import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
+import {StockrequestComponent} from './Admin-Dashboard/stockrequest/stockrequest.component';
+import { ClerktableComponent } from './tables/clerktable/clerktable.component';
 
 const routes: Routes = [
-  { path: 'static', component: ToggleComponent, pathMatch: 'full' },
-  { path: 'tables', component: TablesComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'products', component: ProductsComponent },
@@ -58,6 +58,10 @@ const routes: Routes = [
   {path:'sales', component:SalesComponent},
   {path:'productlist', component:ProductListComponent},
 
+  {path:'add_stock', component:AddstocksComponent} ,
+  {path:'products_admin', component:ProductAdminComponent},
+  {path:'admin/stock_requests', component:StockrequestComponent},
+  {path:'clerktable', component:ClerktableComponent}
 ];
 
 @NgModule({

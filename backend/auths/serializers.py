@@ -12,8 +12,25 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
-     
+class AdminSerializer(serializers.ModelSerializer):
 
+    class Meta:
+        model = Admin
+        fields = ['id','username', 'email', 'password']
+
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }     
+class ClerkSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Clerk
+        fields = ['id','username', 'email', 'password']
+
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+        
 class AdminSignupSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(
         style={'input_type': 'password'}, write_only=True)

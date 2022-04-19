@@ -14,7 +14,7 @@ export class ClerkDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('http://localhost:8000/api/user', {withCredentials: true})
+    this.http.get('https://localshopinv.herokuapp.com/api/user', {withCredentials: true})
     .subscribe(
       this.next,(res:any) => {
        this.message = ` Hi ${this.next[res.username]}!`;
