@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import {ApiService} from '../service/api.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signin',
@@ -17,28 +18,40 @@ export class SigninComponent implements OnInit {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-   
+   error:any
+
   constructor(
     private http: HttpClient,
     private authService: AuthService,  
-    private router: Router
+    private router: Router,
+    private apiService: ApiService,
+    private cookieService: CookieService
   ) { }
+
   
 
   ngOnInit( ): void {
 
-    this.get_Stocks()
+   
   }
 
 
-  get_Stocks() {
-    this.authService.getStocks()
-    .subscribe((data)=>console.log(data))
-  }
-
-  submit(): void{
-      this.http.post('https://localshopinv.herokuapp.com/api/login', this.form.getRawValue(), {
-        withCredentials: true
-      }).subscribe(() => this.router.navigate(['/admin']));
-    }
+//   submit(): void{
+//       this.http.post('https://localshopinv.herokuapp.com/api/login', this.form.getRawValue(), {
+//         withCredentials: true
+//       }).subscribe(() => this.router.navigate(['/clerk']));
+//     }
+    submit(): void{
+      this.apiService.signin(this.form.getRawValue()).subscribe((data) => {
+       let token = data.jwt;
+       if (token){
+          this.cookieService.set('jwt', token);
+          this.router.navigate(['/clerk']);
+         
+       }
+        else{
+          this.error = data;
+        }
+      })
+ }
 }

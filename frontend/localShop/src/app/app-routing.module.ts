@@ -20,6 +20,7 @@ import { StocksComponent } from './stocks/stocks.component';
 import { AddstocksComponent } from './addstocks/addstocks.component';
 import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
 import {StockrequestComponent} from './Admin-Dashboard/stockrequest/stockrequest.component';
+import { ClerktableComponent } from './tables/clerktable/clerktable.component';
 
 const routes: Routes = [
   { path: 'footer', component: FooterComponent },
@@ -41,8 +42,8 @@ const routes: Routes = [
   {path:'stocks', component:StocksComponent},
   {path:'add_stock', component:AddstocksComponent} ,
   {path:'products_admin', component:ProductAdminComponent},
-  {path:'admin/stock_requests', component:StockrequestComponent}
-
+  {path:'admin/stock_requests', component:StockrequestComponent},
+  {path:'clerktable', component:ClerktableComponent}
 ];
 
 @NgModule({

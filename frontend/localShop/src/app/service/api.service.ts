@@ -8,22 +8,24 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
-  apiurl = 'http://127.0.0.1:8000/api/';
-
+  User:any;
+  // apiurl = 'https://localshopinv.herokuapp.com/api/user/';
+  apiurl = 'http://127.0.0.1:8000/api/user/';
+  loginurl= 'https://localshopinv.herokuapp.com/api/login';
+  
   constructor(private http: HttpClient) {}
 
-  get_stocks(): Observable<any>{
-    return this.http.get(this.apiurl + 'stocks/');
+  signin(details:any): Observable<any> {
+    return this.http.post(this.loginurl, details);
+  }
 
+ getUser(token:any): Observable<any> {
+  return this.http.post(this.apiurl, token);
 
+ }
+ setUser(user:any){
+this.User=user;
 }
-
-
-
-
-}
-
  
 
-
+}

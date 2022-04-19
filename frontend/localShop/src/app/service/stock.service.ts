@@ -10,8 +10,12 @@ import { Stock } from '../interface/stock';
 export class StockService {
 
   baseUrl: string = 'https://localshopinv.herokuapp.com/api/';
+  stocksUrl:string = 'http://127.0.0.1:8000/api/add_stock';
 
   constructor(private http: HttpClient) {
+  }
+  add_stock(stock: any): Observable<any>{
+    return this.http.post<any>(this.stocksUrl, stock);
   }
   stocklist(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.baseUrl + 'stocks/');

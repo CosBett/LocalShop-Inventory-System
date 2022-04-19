@@ -34,12 +34,13 @@ export class RequesttableComponent implements OnInit,AfterViewInit {
     this.requestlist = data;
     
     this.dataSource = new MatTableDataSource(this.requestlist);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
    });
     
   }
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+   
     }
   applyFilter(event: Event) {
     this.dataSource = new MatTableDataSource(this.requestlist);

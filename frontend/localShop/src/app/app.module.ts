@@ -25,7 +25,7 @@ import { FormsModule,NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { NavClerkComponent } from './Clerk-Dashboard/nav-clerk/nav-clerk.component';
 import { ClerkDashboardComponent } from './Clerk-Dashboard/clerk-dashboard/clerk-dashboard.component';
 import { RequestStockComponent } from './Clerk-Dashboard/request-stock/request-stock.component';
@@ -36,6 +36,7 @@ import { AddstocksComponent } from './addstocks/addstocks.component';
 import { ProductAdminComponent } from './Admin-Dashboard/product-admin/product-admin.component';
 import { RequesttableComponent } from './tables/requesttable/requesttable.component';
 import { StockrequestComponent } from './Admin-Dashboard/stockrequest/stockrequest.component';
+import { ClerktableComponent } from './tables/clerktable/clerktable.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { StockrequestComponent } from './Admin-Dashboard/stockrequest/stockreque
     ProductAdminComponent,
     RequesttableComponent,
     StockrequestComponent,
+    ClerktableComponent,
   
   ],
   imports: [

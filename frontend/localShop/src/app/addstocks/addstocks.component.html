@@ -2,12 +2,20 @@
 <div class=" row m-2">
   <div class="col-md-4 signin ml-3">
     <main class="card shadow-lg form-signin" width="90vw">
+
       <form #addStocksForm="ngForm" (submit)="addStock(addStocksForm)">
+
         <h1 class="h3 mb-3 fw-normal text-center">Add New Stock</h1>
         <div class="form-floating">
-          <input required name='product_name' [(ngModel)]="product_name" class="form-control mb-4" placeholder="Product">
+
+
+          <select required name='product_name' [(ngModel)]="product_name" class="form-control mb-4" placeholder="Product">
+            <option *ngFor="let product of products" [value]="product.name">{{product.name}}</option>
+         
+        </select>
           <label for="floatingInput">Product</label>
         </div>
+
         <div class="form-floating">
           <input required name='quantity' [(ngModel)]="quantity" class="form-control mb-4" placeholder="Quantity">
           <label for="floatingInput">Quantity</label>
@@ -17,12 +25,10 @@
           <label for="floatingInput">Received Quantity</label>
         </div>
         <div class="form-floating">
-          <Select required [(ngModel)]="payment" name='payment' class="form-control mb-4" placeholder="payment">
-        <label for="floatingPayment">Payment</label>
-        <option value="paid">Paid</option>
-        <option value="unpaid">Unpaid</option>
-      </Select>
+          <input required name='payment' [(ngModel)]="payment" class="form-control mb-4" placeholder="payment">
+          <label for="floatingInput">Payment</label>
         </div>
+
         <div class="form-floating">
           <input required name='spoilt_quantity' [(ngModel)]="spoilt_quantity" class="form-control mb-4" placeholder="spoilt_quantity">
           <label for="floatingPassword">Spoilt Quantity</label>

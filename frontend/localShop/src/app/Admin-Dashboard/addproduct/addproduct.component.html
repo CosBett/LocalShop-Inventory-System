@@ -1,60 +1,26 @@
 <app-navbar></app-navbar>
 <div class="row p-3">
   <div class=" col-md-4 text-center card shadow-lg p-3">
-    <!-- <button type="button " class="btn btn-outline-success " data-bs-toggle="modal " data-bs-target="#addproduct ">
-      Add New Product
-      </button>
-    <div class="modal fade " id="addproduct " tabindex="-1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
-      <div class="modal-dialog ">
-        <div class="modal-content ">
-          <div class="modal-header ">
-            <h5 class="modal-title " id="exampleModalLabel "></h5>
-            <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
-          </div>
-          <div class="modal-body ">
-            <form class="add product ">
-              <h1 class="h3 mb-3 fw-normal text-center ">Add New Product</h1>
-
-              <div class="form-floating ">
-                <input formControlName="username " type="username " class="form-control mb-4 " placeholder="username " autocomplete="off ">
-                <label for="floatingInput ">Name</label>
-              </div>
-              <div class="form-floating ">
-                <input formControlName="password " type="password " class="form-control mb-4 " placeholder="Password " autocomplete="off ">
-                <label for="floatingPassword ">Store</label>
-              </div>
-              <div class="form-floating ">
-                <input formControlName="username " type="username " class="form-control mb-4 " placeholder="username " autocomplete="off ">
-                <label for="floatingInput ">Price</label>
-              </div>
-              <div class="form-floating ">
-                <input formControlName="password " type="password " class="form-control mb-4 " placeholder="Password " autocomplete="off ">
-                <label for="floatingPassword ">Stock</label>
-              </div>
-              <button class="w-100 btn btn-lg btn-outline-success " type="submit ">Submit</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div>
-      <form class="add product ">
+      <form class="add product " #addProductForm="ngForm" (submit)="addProduct(addProductForm)">
         <h1 class="h3 mb-3 fw-normal text-center ">Add New Product</h1>
         <div class="form-floating ">
-          <input formControlName="username " type="username " class="form-control mb-4 " placeholder="username " autocomplete="off ">
+          <input required name='name' [(ngModel)]="name" class="form-control mb-4 " placeholder="name " autocomplete="off ">
           <label for="floatingInput ">Name</label>
         </div>
-        <div class="form-floating ">
-          <input formControlName="password " type="password " class="form-control mb-4 " placeholder="Password " autocomplete="off ">
-          <label for="floatingPassword ">Store</label>
+        <div class="form-floating">
+          <select required name='store' [(ngModel)]="store" class="form-control mb-4" placeholder="Store">
+            <option *ngFor="let store of stores" [value]="store.name">{{store.name}}</option>
+        </select>
+          <label for="floatingInput">Store</label>
         </div>
         <div class="form-floating ">
-          <input formControlName="username " type="username " class="form-control mb-4 " placeholder="username " autocomplete="off ">
-          <label for="floatingInput ">Price</label>
+          <input required name='cost' [(ngModel)]="cost" class="form-control mb-4 " placeholder="cost " autocomplete="off ">
+          <label for="floatingInput ">Cost</label>
         </div>
         <div class="form-floating ">
-          <input formControlName="password " type="password " class="form-control mb-4 " placeholder="Password " autocomplete="off ">
-          <label for="floatingPassword ">Stock</label>
+          <input required name='price' [(ngModel)]="price" class="form-control mb-4 " placeholder="Price " autocomplete="off ">
+          <label for="floatingPassword ">Price</label>
         </div>
         <button class="w-100 btn btn-lg btn-outline-success " type="Admin ">Add Product</button>
       </form>

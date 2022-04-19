@@ -4,24 +4,19 @@
     <div class="container sRequest">
 
       <main class="card shadow-lg form-sRequest" width="100vw">
-
-        <form>
+        <form #addRequestForm="ngForm" (submit)="addRequest(addRequestForm)">
           <h1 class="h3 mb-3 fw-normal text-center">Restocking Request</h1>
           <div class="form-floating">
-            <input formControlName="username" class="form-control mb-4" placeholder="Name">
+            <select required name='product_name' [(ngModel)]="product_name" class="form-control mb-4" placeholder="Product">
+              <option *ngFor="let product of products" [value]="product.name">{{product.name}}</option>
+           </select>
             <label for="floatingInput">Product</label>
           </div>
-
           <div class="form-floating">
-            <input formControlName="Quantity" class="form-control mb-4" placeholder="Quantity">
-            <label for="floatingPassword">Quantity</label>
-          </div>
-          <div class="form-floating">
-            <input formControlName="curre" class="form-control mb-4" placeholder="Quantity">
-            <label for="floatingPassword">Current Stock</label>
+            <input required name='quantity' [(ngModel)]="quantity" class="form-control mb-4" placeholder="Quantity">
+            <label for="floatingInput">Quantity</label>
           </div>
           <button class="w-100 btn btn-lg btn-outline-success" type="submit">Send Request</button>
-
         </form>
       </main>
     </div>
