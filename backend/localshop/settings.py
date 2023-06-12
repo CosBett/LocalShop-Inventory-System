@@ -3,7 +3,11 @@ from pathlib import Path
 import os
 import dj_database_url
 from decouple import config, Csv
-import django_heroku
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -72,9 +76,9 @@ WSGI_APPLICATION = 'localshop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-if config('MODE') == "dev":
-    DATABASES = {
+#
+# if config('MODE', default='dev') == 'dev':
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': config('DB_NAME'),
@@ -83,17 +87,17 @@ if config('MODE') == "dev":
             'HOST': config('DB_HOST'),
             'PORT': '',
         }
-    }
+ }
 # production
-else:
-    DATABASES = {
-        'default': dj_database_url.config(
-            default=config('DATABASE_URL')
-        )
-    }
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
+# else:
+#     DATABASES = {
+#         'default': dj_database_url.config(
+#             default=config('DATABASE_URL')
+#         )
+#     }
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+#
 ALLOWED_HOSTS = ['*']
 
 # Password validation
@@ -178,5 +182,3 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-
-django_heroku.settings(locals())
